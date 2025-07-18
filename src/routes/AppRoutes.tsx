@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import { ROUTES } from "../constans/routes";
-import { MainLayout } from "../layouts/MainLayout";
+import { Routes, Route } from 'react-router-dom';
+// import { ROUTES } from '../constans/routes';
+import { MainLayout } from '../layouts/MainLayout';
 
 export default function AppRoutes() {
   return (

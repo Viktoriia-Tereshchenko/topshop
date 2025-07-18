@@ -1,5 +1,7 @@
-import { Outlet } from 'react-router-dom';
-import { NavBar } from '../components/NavBar/NavBar';
+import { Outlet } from "react-router-dom";
+import { NavBar } from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
+// import { NavBar } from "../components/NavBar/NavBar";
 
 export const MainLayout = () => {
   return (
@@ -14,9 +16,8 @@ export const MainLayout = () => {
         <Outlet />
       </main>
 
-      <footer className="min-h-24">
-        {/* для внешнего сайта - обычные ссылки */}
-        <a href="">Instagram📱</a>
+      <footer>
+        <Footer />
       </footer>
     </div>
   );

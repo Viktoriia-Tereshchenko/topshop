@@ -9,7 +9,7 @@ type Props = {
 
 export default function UserCard({ user }: Props) {
   return (
-    <li className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs mx-auto flex-shrink-0">
+    <li className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs mx-auto flex-shrink-0 scale-[0.66] w-[220px] h-[280px]">
       <Link to={`/users/${user.id}`}>
         <img
           src={user.avatar}
@@ -17,7 +17,7 @@ export default function UserCard({ user }: Props) {
             (e.currentTarget as HTMLImageElement).src = avatar;
           }}
           alt={user.name}
-          className="w-full h-70 object-cover"
+          className="w-full h-50 object-cover"
         />
       </Link>
       <div className="p-4 text-center">

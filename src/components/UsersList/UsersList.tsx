@@ -75,7 +75,7 @@ export default function UsersList() {
   };
 
   return (
-    <div className="bg-[#f5f4fa] min-h-[400px] flex flex-col justify-center items-center p-4">
+    <div className="bg-secondary-500  min-h-[400px] flex flex-col justify-center items-center p-2">
       {loading && <p>Loading users...</p>}
       {error && (
         <div className="text-red-600 font-semibold p-4">
@@ -84,7 +84,7 @@ export default function UsersList() {
       )}
       {!loading && !error && (
         <>
-          <ul className="flex gap-2 w-full max-w-screen-xl justify-center ">
+          <ul className="flex gap-2 w-full max-w-screen-xl justify-center items-center px-[200px]">
             {visibleUsers.map((user) => (
               <div
                 key={user.id}
@@ -101,14 +101,14 @@ export default function UsersList() {
               disabled={page === 0}
               className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
             >
-              ← Prev
+              ←
             </button>
             <button
               onClick={handleNext}
               disabled={endIndex >= users.length}
               className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
             >
-              Next →
+              →
             </button>
           </div>
         </>

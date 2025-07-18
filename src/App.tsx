@@ -3,6 +3,7 @@ import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
 import { AuthProvider } from "./providers/AuthProvider";
 
+
 function App() {
   return (
     <BrowserRouter>

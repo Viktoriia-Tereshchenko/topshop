@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import avatar from "../../assets/avatar.jpg";
 import type { User } from "../../types";
+import UserCard from "../UserCard/UserCard";
 
 export default function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [page, setPage] = useState(0);
+
+  const cardsPerPage = 4;
 
   useEffect(() => {
     fetchUsers();
@@ -36,37 +38,51 @@ export default function UsersList() {
     }
   }
 
-  return (
-    <div className="flex flex-col items-center justify-center mt-2 gap-4">
-      {loading && <p>Loading users...</p>}
+  const startIndex = page * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+  const visibleUsers = users.slice(startIndex, endIndex);
 
+  const handlePrev = () => {
+    setPage((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    const maxPage = Math.floor((users.length - 1) / cardsPerPage);
+    setPage((prev) => Math.min(prev + 1, maxPage));
+  };
+
+  return (
+    <div className="bg-[#f5f4fa] min-h-[400px] flex flex-col items-center p-4">
+      {loading && <p>Loading users...</p>}
       {error && (
         <div className="text-red-600 font-semibold p-4">
           Failed to load users: {error}
         </div>
       )}
-
       {!loading && !error && (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4 gap-4 rounded-lg w-4/5 bg-white border border-t-0 border-[#eeeeee] px-6 py-5 overflow-y-auto max-h-120">
-          {users.map((user) => (
-            <li
-              key={user.id}
-              className="h-24 flex flex-col items-center justify-center col-span-1"
+        <>
+          <ul className="flex gap-6">
+            {visibleUsers.map((user) => (
+              <UserCard key={user.id} user={user} />
+            ))}
+          </ul>
+          <div className="mt-4 flex gap-4">
+            <button
+              onClick={handlePrev}
+              disabled={page === 0}
+              className={`px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50`}
             >
-              <p className="text-sm mb-2 text-[#2196f3]">{user.email}</p>
-              <Link to={`/users/${user.id}`}>
-                <img
-                  src={user.avatar}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = avatar;
-                  }}
-                  alt="user avatar"
-                  className="rounded-full w-16 h-16 object-cover"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+              ←
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={endIndex >= users.length}
+              className={`px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50`}
+            >
+              →
+            </button>
+          </div>
+        </>
       )}
     </div>
   );

@@ -75,7 +75,7 @@ export default function UsersList() {
   };
 
   return (
-    <div className="bg-[#f5f4fa] min-h-[400px] flex flex-col justify-center items-center p-4">
+    <div className="bg-accent min-h-[400px] flex flex-col justify-center items-center p-4">
       {loading && <p>Loading users...</p>}
       {error && (
         <div className="text-red-600 font-semibold p-4">

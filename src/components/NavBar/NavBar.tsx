@@ -2,9 +2,6 @@ import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constans/routes";
 
 export const NavBar = () => {
-  //   const classSelector = ({ isActive }: { isActive: boolean }) => {
-  //   return isActive ? "text-[#976f5b]" : "hover:text-pink-950";
-  // };
   return (
     <>
       <nav className="flex justify-center items-center gap-4 flex-wrap text-black text-sm mx-auto">

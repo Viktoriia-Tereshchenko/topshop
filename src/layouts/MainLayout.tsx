@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { NavBar } from '../components/NavBar/NavBar';
+import Footer from '../components/Footer/Footer';
 import Container from '../components/Container/Container';
 
 export const MainLayout = () => {
@@ -25,7 +26,9 @@ export const MainLayout = () => {
       </main>
 
       <footer className="min-h-24">
-        <Container></Container>
+        <Container>
+          <Footer />
+        </Container>
       </footer>
     </div>
   );

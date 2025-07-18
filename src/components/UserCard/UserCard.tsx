@@ -17,7 +17,7 @@ export default function UserCard({ user }: Props) {
             (e.currentTarget as HTMLImageElement).src = avatar;
           }}
           alt={user.name}
-          className="w-full h-56 object-cover"
+          className="w-full h-70 object-cover"
         />
       </Link>
       <div className="p-4 text-center">

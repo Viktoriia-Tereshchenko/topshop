@@ -1,16 +1,40 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import avatar from "../../assets/avatar.jpg";
 import type { User } from "../../types";
+import UserCard from "../UserCard/UserCard";
 
 export default function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [page, setPage] = useState(0);
+  const [cardsPerPage, setCardsPerPage] = useState(4);
+
+  function updateCardsPerPage() {
+    const width = window.innerWidth;
+    if (width >= 1280) {
+      setCardsPerPage(4);
+    } else if (width >= 768) {
+      setCardsPerPage(3);
+    } else if (width >= 640) {
+      setCardsPerPage(2);
+    } else {
+      setCardsPerPage(1);
+    }
+  }
+
+  useEffect(() => {
+    updateCardsPerPage();
+    window.addEventListener("resize", updateCardsPerPage);
+    return () => window.removeEventListener("resize", updateCardsPerPage);
+  }, []);
 
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  useEffect(() => {
+    setPage(0);
+  }, [cardsPerPage]);
 
   async function fetchUsers() {
     setLoading(true);
@@ -36,37 +60,58 @@ export default function UsersList() {
     }
   }
 
-  return (
-    <div className="flex flex-col items-center justify-center mt-2 gap-4">
-      {loading && <p>Loading users...</p>}
+  const startIndex = page * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+  const visibleUsers = users.slice(startIndex, endIndex);
 
+  const maxPage = Math.floor((users.length - 1) / cardsPerPage);
+
+  const handlePrev = () => {
+    setPage((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setPage((prev) => Math.min(prev + 1, maxPage));
+  };
+
+  return (
+    <div className="bg-[#f5f4fa] min-h-[400px] flex flex-col justify-center items-center p-4">
+      {loading && <p>Loading users...</p>}
       {error && (
         <div className="text-red-600 font-semibold p-4">
           Failed to load users: {error}
         </div>
       )}
-
       {!loading && !error && (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  p-4 gap-4 rounded-lg w-4/5 bg-white border border-t-0 border-[#eeeeee] px-6 py-5 overflow-y-auto max-h-120">
-          {users.map((user) => (
-            <li
-              key={user.id}
-              className="h-24 flex flex-col items-center justify-center col-span-1"
+        <>
+          <ul className="flex gap-2 w-full max-w-screen-xl justify-center ">
+            {visibleUsers.map((user) => (
+              <div
+                key={user.id}
+                className="flex-shrink-0"
+                style={{ width: `${100 / cardsPerPage}%` }}
+              >
+                <UserCard user={user} />
+              </div>
+            ))}
+          </ul>
+          <div className="mt-4 flex gap-4">
+            <button
+              onClick={handlePrev}
+              disabled={page === 0}
+              className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
             >
-              <p className="text-sm mb-2 text-[#2196f3]">{user.email}</p>
-              <Link to={`/users/${user.id}`}>
-                <img
-                  src={user.avatar}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = avatar;
-                  }}
-                  alt="user avatar"
-                  className="rounded-full w-16 h-16 object-cover"
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+              ← Prev
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={endIndex >= users.length}
+              className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
+            >
+              Next →
+            </button>
+          </div>
+        </>
       )}
     </div>
   );

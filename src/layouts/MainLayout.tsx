@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { NavBar } from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
 // import { NavBar } from "../components/NavBar/NavBar";
 
 export const MainLayout = () => {
@@ -14,7 +15,7 @@ export const MainLayout = () => {
       </main>
 
       <footer>
-        <a href="">Instagram📱</a>
+        <Footer />
       </footer>
     </>
   );

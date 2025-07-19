@@ -8,12 +8,19 @@ export default function Account() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log('Account component - user:', user);
     if (!user) {
+      console.log('No user found, redirecting to login');
       navigate(ROUTES.LOGIN);
     }
-  }, []);
+  }, [user, navigate]);
 
-  if (!user) return null; 
+  if (!user) {
+    console.log('Account component - no user, returning null');
+    return null; 
+  }
+
+  console.log('Account component - rendering with user:', user);
 
   return (
     <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-300 dark:border-gray-700">

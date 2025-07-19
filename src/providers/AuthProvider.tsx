@@ -16,10 +16,17 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
         setUser(obj);
     }
 
+    const logout = () => {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("isAuthorized");
+        localStorage.removeItem("isAdmin");
+        setUser(undefined);
+        setIsAuthorized(false);
+    };
+
     useEffect(()=>{
         if(isAuthorized) {
             fetchUser(localStorage.getItem("accessToken") || "");
-            localStorage.setItem("isAdmin", user?.role === roles.ADMIN ? "1" : "");
         } else {
             setUser(undefined);
             localStorage.removeItem("accessToken");
@@ -28,9 +35,14 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
         }
     },[isAuthorized]);
 
+    useEffect(() => {
+        if(user) {
+            localStorage.setItem("isAdmin", user.role === roles.ADMIN ? "1" : "");
+        }
+    }, [user]);
 
     return (
-        <AuthContext.Provider value={{user, setUser, isAuthorized, setIsAuthorized}}>
+        <AuthContext.Provider value={{user, setUser, isAuthorized, setIsAuthorized, logout}}>
         {children}
         </AuthContext.Provider>
     )

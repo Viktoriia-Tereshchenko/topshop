@@ -1,13 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 import { ROUTES } from '../constants/routes';
 import { MainLayout } from '../layouts/MainLayout';
-import UsersPage from '../pages/UsersPage/UsersPage';
-import Registration from '../components/Registration/Registration';
-import Login from '../components/Login/Login';
-import Account from '../components/Account/Account';
+import { AuthProvider } from '../providers/AuthProvider';
+import ProductsPage from '../pages/ProductsPage/ProductsPage';
+import { AddProduct } from '../components/AddProduct/AddProduct';
+import { AdminDashboard } from '../pages/Admin/AdminDashboard';
+import { AdminLayout } from '../pages/Admin/AdminLayout';
+import { ProductsManagement } from '../pages/Admin/ProductsManagement';
+import { CategoriesManagement } from '../pages/Admin/CategoriesManagement';
+import { UsersManagement } from '../pages/Admin/UsersManagement';
 import Logout from '../components/Logout/Logout';
-import HomePage from '../pages/HomePage/HomePage';
-import AboutPage from '../pages/AboutPage/AboutPage';
+import Login from '../components/Login/Login';
+import Registration from '../components/Registration/Registration';
+import UsersPage from '../pages/UsersPage/UsersPage';
+import Account from '../components/Account/Account';
 import Team from '../pages/Team/Team';
 import ApplicationForm from '../pages/Careers/ApplicationForm';
 
@@ -29,8 +35,7 @@ export default function AppRoutes() {
         {/* <Route path={ROUTES.USER} element={<UserPage  />} /> page  */}
         {/* <Route path={ROUTES.DELETE_USER} element={<DeleteUserPage/>} />  component / button     */}
         {/* <Route path={ROUTES.CONTACT} element={<Contact />} />   -> footer*/}
-        { <Route path="/team" element={<Team />} /> }
-        { <Route path="/careers" element={<ApplicationForm />} /> }
+        <Route path="team" element={<Team />} />
       </Route>
     </Routes>
   );

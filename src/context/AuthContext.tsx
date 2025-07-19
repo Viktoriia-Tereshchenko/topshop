@@ -6,7 +6,8 @@ interface AuthContextType {
     setUser: (user: User | undefined) => void;
     setIsAuthorized: (arg: boolean) => void;
     isAuthorized?: boolean;
-    isAdmin?:boolean
+    isAdmin?: boolean;
+    logout: () => void;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);

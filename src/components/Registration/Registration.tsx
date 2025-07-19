@@ -53,9 +53,9 @@ export const Registration = () => {
   }
 
   return (
-    <div>
+    <div className="py-[120px]">
       <div>{message ? message : null}</div>
-      <h1 className="text-3xl font-bold text-gray-900 p-4">Registration</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Registration</h1>
       <Formik
         initialValues={{
           name: "",
@@ -123,7 +123,7 @@ export const Registration = () => {
               <Field
                 name="password"
                 type="password"
-                autocomplete
+                autoComplete="true" 
                 className="mt-1 block w-full border rounded-md px-3 py-2"
               />
               <ErrorMessage
@@ -180,18 +180,20 @@ export const Registration = () => {
 
             {/* Submit */}
             <div className="flex justify-between items-center gap-4">
-              <button
-                type="submit"
-                className="flex-1 bg-accent text-white py-2 rounded-md hover:bg-indigo-500"
-              >
-                Signup
-              </button>
               <a
                 href={ROUTES.LOGIN}
                 className="flex-1 text-center bg-gray-100 text-accent py-2 rounded-md hover:bg-gray-200"
               >
                 Signin
               </a>
+
+              <button
+                type="submit"
+                className="flex-1 bg-accent text-white py-2 rounded-md hover:bg-indigo-500"
+              >
+                Signup
+              </button>
+
             </div>
           </Form>
         )}

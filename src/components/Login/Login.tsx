@@ -87,12 +87,12 @@ export const Login = () => {
 
             {/* Submit */}
             <div className="flex justify-between items-center gap-4">
-              <button type="submit" className="flex-1 bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-500">
+              <button type="submit" className="flex-1 bg-accent text-white py-2 rounded-md hover:bg-indigo-500">
                 Signin
               </button>
               <a
                 href={ROUTES.REGISTRATION}
-                className="flex-1 text-center bg-gray-100 text-indigo-600 py-2 rounded-md hover:bg-gray-200"
+                className="flex-1 text-center bg-gray-100 text-accent py-2 rounded-md hover:bg-gray-200"
               >
                 Signup
               </a>

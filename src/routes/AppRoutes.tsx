@@ -8,6 +8,8 @@ import Account from '../components/Account/Account';
 import Logout from '../components/Logout/Logout';
 import HomePage from '../pages/HomePage/HomePage';
 import AboutPage from '../pages/AboutPage/AboutPage';
+import Team from '../pages/Team/Team';
+import ApplicationForm from '../pages/Careers/ApplicationForm';
 
 export default function AppRoutes() {
   return (
@@ -27,7 +29,8 @@ export default function AppRoutes() {
         {/* <Route path={ROUTES.USER} element={<UserPage  />} /> page  */}
         {/* <Route path={ROUTES.DELETE_USER} element={<DeleteUserPage/>} />  component / button     */}
         {/* <Route path={ROUTES.CONTACT} element={<Contact />} />   -> footer*/}
-        {/* <Route path="*" element={<NotFound />} /> */}
+        { <Route path="/team" element={<Team />} /> }
+        { <Route path="/careers" element={<ApplicationForm />} /> }
       </Route>
     </Routes>
   );

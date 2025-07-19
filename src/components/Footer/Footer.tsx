@@ -1,3 +1,6 @@
+import { NavLink } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
+
 export default function Footer() {
   return (
     <div>
@@ -7,9 +10,9 @@ export default function Footer() {
             <h2 className="text-white font-semibold mb-2">Company</h2>
             <ul>
               <li>
-                <a href="/about" className="hover:underline text-neutral-500">
+                <NavLink to={ROUTES.ABOUT} className="hover:underline text-neutral-500">
                   About
-                </a>
+                </NavLink>
               </li>
               <li>
                 <a href="/team" className="hover:underline text-neutral-500">

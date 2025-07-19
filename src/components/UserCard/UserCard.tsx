@@ -9,7 +9,8 @@ type Props = {
 
 export default function UserCard({ user }: Props) {
   return (
-    <li className="bg-white rounded-2xl overflow-hidden max-w-xs mx-auto flex-shrink-0 scale-[0.66] w-[220px] h-[280px] shadow-[inset_0px_-11px_22px_5px_rgba(66,90,108,0.22)]">
+    // <div className="bg-white rounded-2xl overflow-hidden max-w-xs mx-auto flex-shrink-0 scale-[0.66] w-[220px] h-[280px] shadow-[inset_0px_-11px_22px_5px_rgba(66,90,108,0.22)]">
+    <div>
       <Link to={`/users/${user.id}`}>
         <img
           src={user.avatar}
@@ -58,6 +59,6 @@ export default function UserCard({ user }: Props) {
           </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 }

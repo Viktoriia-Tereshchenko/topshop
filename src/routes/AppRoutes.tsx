@@ -6,17 +6,19 @@ import Registration from '../components/Registration/Registration';
 import Login from '../components/Login/Login';
 import Account from '../components/Account/Account';
 import Logout from '../components/Logout/Logout';
+import About from '../pages/About/About';
+import HomePage from '../pages/HomePage/HomePage';
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} /> page
         <Route path={ROUTES.REGISTRATION} element={<Registration />} />
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.LOGOUT} element={<Logout />} />
         <Route path={ROUTES.ACCOUNT} element={<Account />} />
-        {/* <Route index element={<Home />} /> page  */}
-        {/* <Route path={ROUTES.ABOUT} element={<About />} /> page  */}
+        <Route path={ROUTES.ABOUT} element={<About />} /> page
         {/* <Route path={ROUTES.PRODUCTS} element={<ProductsPage/>} /> page  */}
         {/* <Route path={ROUTES.PRODUCTS + "/:id"} element={<ProductPage />} />  page  */}
         {/* <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} /> page  */}

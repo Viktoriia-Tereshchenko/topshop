@@ -1,18 +1,18 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useEffect, useState } from "react";
-import * as Yup from "yup";
-import { useCurrentUser } from "../../hooks/useCurrentUser";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../constants/routes";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useEffect, useState } from 'react';
+import * as Yup from 'yup';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
-    .required("Required")
-    .min(2, "Too Short!")
-    .matches(/[A-Z]/, "Minimum one capital letter")
-    .matches(/[0-9]/, "Minimum one digit")
-    .max(50, "Too Long!"),
+    .required('Required')
+    .min(2, 'Too Short!')
+    .matches(/[A-Z]/, 'Minimum one capital letter')
+    .matches(/[0-9]/, 'Minimum one digit')
+    .max(50, 'Too Long!'),
 });
 
 interface Credentials {
@@ -21,42 +21,43 @@ interface Credentials {
 }
 
 export const Login = () => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const { isAuthorized, setIsAuthorized } = useCurrentUser();
   const navigate = useNavigate();
 
   async function fetchLogin(credentials: Credentials) {
-    const res = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "Application/JSON" },
+    const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'Application/JSON' },
       body: JSON.stringify(credentials),
     });
 
     if (res.ok) {
-      setMessage("Successfully login");
+      setMessage('Successfully login');
 
       const { access_token } = await res.json();
-      localStorage.setItem("accessToken", access_token);
-      localStorage.setItem("isAuthorized", "true");
+      localStorage.setItem('accessToken', access_token);
+      localStorage.setItem('isAuthorized', 'true');
       setIsAuthorized(true);
       setTimeout(() => {
         navigate(ROUTES.ACCOUNT);
       }, 2000); // редирект
     }
   }
-  useEffect(()=>{    
-    if(isAuthorized) {
-      navigate(ROUTES.ACCOUNT); 
-    } },[])
+  useEffect(() => {
+    if (isAuthorized) {
+      navigate(ROUTES.ACCOUNT);
+    }
+  }, []);
 
-  return ( 
+  return (
     <div>
       <div>{message ? message : null}</div>
       <h1 className="text-3xl font-bold text-gray-900 p-4">Login</h1>
       <Formik
         initialValues={{
-          email: "",
-          password: "",
+          email: '',
+          password: '',
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
@@ -68,50 +69,25 @@ export const Login = () => {
           <Form className="max-w-md mx-auto space-y-4">
             {/* Email */}
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email
               </label>
-              <Field
-                name="email"
-                type="text"
-                className="mt-1 block w-full border rounded-md px-3 py-2"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="text-red-500 text-sm"
-              />
+              <Field name="email" type="text" className="mt-1 block w-full border rounded-md px-3 py-2" />
+              <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
             </div>
 
             {/* Password */}
             <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password
               </label>
-              <Field
-                name="password"
-                type="password"
-                className="mt-1 block w-full border rounded-md px-3 py-2"
-              />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="text-red-500 text-sm"
-              />
+              <Field name="password" type="password" className="mt-1 block w-full border rounded-md px-3 py-2" />
+              <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
             </div>
 
             {/* Submit */}
             <div className="flex justify-between items-center gap-4">
-              <button
-                type="submit"
-                className="flex-1 bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-500"
-              >
+              <button type="submit" className="flex-1 bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-500">
                 Signin
               </button>
               <a
@@ -121,12 +97,10 @@ export const Login = () => {
                 Signup
               </a>
             </div>
-            
           </Form>
         )}
       </Formik>
     </div>
-    
   );
 };
 

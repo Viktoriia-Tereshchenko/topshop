@@ -46,20 +46,12 @@ export default function Footer() {
           <div>
             <h2 className="text-white font-semibold mb-2">Subscribe</h2>
             <form className="flex flex-col">
-              <input
-                type="email"
-                placeholder="Email"
-                className="p-2 rounded bg-gray-800 text-neutral-500 mb-2"
-              />
-              <button className="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded text-white">
-                Subscribe
-              </button>
+              <input type="email" placeholder="Email" className="p-2 rounded bg-gray-800 text-white mb-2" />
+              <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white">Subscribe</button>
             </form>
           </div>
         </div>
-        <p className="text-center text-neutral-500 mt-10 text-xs">
-          &copy; {new Date().getFullYear()} TEAM_3 Site
-        </p>
+        <p className="text-center text-gray-500 mt-10 text-xs">&copy; {new Date().getFullYear()} TEAM_3 Site</p>
       </footer>
     </div>
   );

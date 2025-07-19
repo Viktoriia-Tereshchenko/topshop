@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import type { User } from "../../types";
-import UserCard from "../UserCard/UserCard";
+import { useEffect, useState } from 'react';
+import type { User } from '../../types';
+import UserCard from '../UserCard/UserCard';
 
 export default function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
@@ -24,8 +24,8 @@ export default function UsersList() {
 
   useEffect(() => {
     updateCardsPerPage();
-    window.addEventListener("resize", updateCardsPerPage);
-    return () => window.removeEventListener("resize", updateCardsPerPage);
+    window.addEventListener('resize', updateCardsPerPage);
+    return () => window.removeEventListener('resize', updateCardsPerPage);
   }, []);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function UsersList() {
   async function fetchUsers() {
     setLoading(true);
     try {
-      const res = await fetch("https://api.escuelajs.co/api/v1/users");
+      const res = await fetch('https://api.escuelajs.co/api/v1/users');
 
       if (!res.ok) {
         throw new Error(`Server error: ${res.status}`);
@@ -53,7 +53,7 @@ export default function UsersList() {
         setError(e.message);
         setUsers([]);
       } else {
-        setError("Something went wrong...");
+        setError('Something went wrong...');
       }
     } finally {
       setLoading(false);
@@ -75,22 +75,14 @@ export default function UsersList() {
   };
 
   return (
-    <div className="bg-[#f5f4fa] min-h-[400px] flex flex-col justify-center items-center p-4">
+    <div className="bg-secondary-500  min-h-[400px] flex flex-col justify-center items-center p-2">
       {loading && <p>Loading users...</p>}
-      {error && (
-        <div className="text-red-600 font-semibold p-4">
-          Failed to load users: {error}
-        </div>
-      )}
+      {error && <div className="text-red-600 font-semibold p-4">Failed to load users: {error}</div>}
       {!loading && !error && (
         <>
-          <ul className="flex gap-2 w-full max-w-screen-xl justify-center ">
+          <ul className="flex gap-2 w-full max-w-screen-xl justify-center items-center px-[200px]">
             {visibleUsers.map((user) => (
-              <div
-                key={user.id}
-                className="flex-shrink-0"
-                style={{ width: `${100 / cardsPerPage}%` }}
-              >
+              <div key={user.id} className="flex-shrink-0" style={{ width: `${100 / cardsPerPage}%` }}>
                 <UserCard user={user} />
               </div>
             ))}
@@ -101,14 +93,14 @@ export default function UsersList() {
               disabled={page === 0}
               className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
             >
-              ← Prev
+              ←
             </button>
             <button
               onClick={handleNext}
               disabled={endIndex >= users.length}
               className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 disabled:opacity-50"
             >
-              Next →
+              →
             </button>
           </div>
         </>

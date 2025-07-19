@@ -35,6 +35,8 @@ export default function AppRoutes() {
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path={ROUTES.PRODUCTS} element={<ProductsPage />} />
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
+          <Route path="team" element={<Team />} />
+          <Route path="careers" element={<ApplicationForm />} />
         </Route>
         {/* Admin Routes */}
         <Route path={ROUTES.ADMIN} element={<AdminLayout />}>
@@ -42,8 +44,6 @@ export default function AppRoutes() {
           <Route path="products" element={<ProductsManagement />} />
           <Route path="categories" element={<CategoriesManagement />} />
           <Route path="users" element={<UsersManagement />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/careers" element={<ApplicationForm />} />
         </Route>
       </Routes>
     </AuthProvider>

@@ -40,7 +40,7 @@ export const Login = () => {
       localStorage.setItem('isAuthorized', 'true');
       setIsAuthorized(true);
       setTimeout(() => {
-        navigate(ROUTES.ACCOUNT);
+        navigate(ROUTES.HOME);
       }, 2000); // редирект
     }
   }
@@ -51,9 +51,9 @@ export const Login = () => {
   }, []);
 
   return (
-    <div>
+    <div className="py-[120px]">
       <div>{message ? message : null}</div>
-      <h1 className="text-3xl font-bold text-gray-900 p-4">Login</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
       <Formik
         initialValues={{
           email: '',
@@ -81,7 +81,7 @@ export const Login = () => {
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password
               </label>
-              <Field name="password" type="password" className="mt-1 block w-full border rounded-md px-3 py-2" />
+              <Field name="password" type="password" autoComplete="true" className="mt-1 block w-full border rounded-md px-3 py-2" />
               <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
             </div>
 

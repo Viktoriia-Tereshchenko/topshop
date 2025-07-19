@@ -29,8 +29,8 @@ export default function AppRoutes() {
         {/* <Route path={ROUTES.USER} element={<UserPage  />} /> page  */}
         {/* <Route path={ROUTES.DELETE_USER} element={<DeleteUserPage/>} />  component / button     */}
         {/* <Route path={ROUTES.CONTACT} element={<Contact />} />   -> footer*/}
-        <Route path="team" element={<Team />} />
-        <Route path="careers" element={<ApplicationForm />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/careers" element={<ApplicationForm />} />
       </Route>
     </Routes>
   );

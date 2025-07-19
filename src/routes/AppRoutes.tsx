@@ -6,8 +6,8 @@ import Registration from '../components/Registration/Registration';
 import Login from '../components/Login/Login';
 import Account from '../components/Account/Account';
 import Logout from '../components/Logout/Logout';
-import About from '../pages/About/About';
 import HomePage from '../pages/HomePage/HomePage';
+import AboutPage from '../pages/AboutPage/AboutPage';
 
 export default function AppRoutes() {
   return (
@@ -18,7 +18,7 @@ export default function AppRoutes() {
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.LOGOUT} element={<Logout />} />
         <Route path={ROUTES.ACCOUNT} element={<Account />} />
-        <Route path={ROUTES.ABOUT} element={<About />} /> page
+        <Route path={ROUTES.ABOUT} element={<AboutPage />} /> page
         {/* <Route path={ROUTES.PRODUCTS} element={<ProductsPage/>} /> page  */}
         {/* <Route path={ROUTES.PRODUCTS + "/:id"} element={<ProductPage />} />  page  */}
         {/* <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} /> page  */}

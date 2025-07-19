@@ -3,7 +3,9 @@
 @theme {
   --color-accent: #2196f3;
   --color-main: #212121;
+  --color-users-bg: #f5f4fa;
   --color-secondary-700: #757575;
+  --color-secondary-600: #afb1b8;
   --color-secondary-500: #ffffff99;
   --color-secondary-100: #ffffff;
   --font-main: 'Roboto', sans-serif;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { AdminNav } from '../../components/AdminNav/AdminNav';
 import { NavBar } from '../../components/NavBar/NavBar';

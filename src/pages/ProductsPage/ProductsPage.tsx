@@ -17,8 +17,8 @@ interface Category {
 const PRODUCTS_API = "https://api.escuelajs.co/api/v1/products";
 const CATEGORIES_API = "https://api.escuelajs.co/api/v1/categories";
 
-const DESCRIPTION_PREVIEW_LENGTH = 120;
-const DESCRIPTION_PREVIEW_LINES = 3;
+// const DESCRIPTION_PREVIEW_LENGTH = 120;
+// const DESCRIPTION_PREVIEW_LINES = 3;
 
 const ProductsPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);

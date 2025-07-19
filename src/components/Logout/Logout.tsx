@@ -4,19 +4,20 @@ import { ROUTES } from "../../constants/routes";
 import { useNavigate } from "react-router-dom";
 
 export default function Logout() {
-  const { setIsAuthorized } = useCurrentUser();
+  const { logout } = useCurrentUser();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setIsAuthorized(false);
-          setTimeout(() => {
-            navigate(ROUTES.LOGIN);
-          }, 2000);
-  }, []);
+    // Используем централизованную функцию logout
+    logout();
+    
+    // Немедленно перенаправляем на логин
+    navigate(ROUTES.LOGIN);
+  }, [logout, navigate]);
 
   return (
-    <div className="text-center mt-10 text-xl font-semibold text-gray-700">
-      Successfully logout! Wait a second for login page redirection...
+    <div className="text-center mt-10 text-xl font-semibold text-gray-100">
+      Successfully logged out! Redirecting to login page...
     </div>
   );
 }

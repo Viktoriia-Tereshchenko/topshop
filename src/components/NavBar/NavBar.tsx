@@ -6,43 +6,60 @@ export const NavBar = () => {
   const { user } = useCurrentUser();
   const isAdmin = user?.role === 'admin';
   return (
-    <nav className="sticky top-0 z-40 bg-gray-900/90 backdrop-blur shadow flex justify-center items-center gap-6 py-3 px-6 rounded-b-2xl mb-6 border-b border-gray-700">
-      <NavLink to="/" className="hover:bg-gray-800 text-gray-100 font-semibold transition-colors duration-200 px-3 py-1 rounded-lg">
-        Home
+    <nav className="flex items-center gap-4 flex-wrap text-sm">
+      <NavLink
+        to="/"
+        className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+      >
+        <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">Home</span>
+        <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
       </NavLink>
-      <NavLink to={ROUTES.PRODUCTS} className="hover:bg-gray-800 text-gray-100 font-semibold transition-colors duration-200 px-3 py-1 rounded-lg">
-        Products
+      <NavLink
+        to={ROUTES.ABOUT}
+        className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+      >
+        <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">About</span>
+        <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
       </NavLink>
-      <NavLink to={ROUTES.ABOUT} className="hover:bg-gray-800 text-gray-100 font-semibold transition-colors duration-200 px-3 py-1 rounded-lg">
-        About
+      <NavLink
+        to={ROUTES.PRODUCTS}
+        className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+      >
+        <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">Products</span>
+        <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
       </NavLink>
-      <NavLink to={ROUTES.LOGIN} className="hover:bg-gray-800 text-gray-100 font-semibold transition-colors duration-200 px-3 py-1 rounded-lg">
-        Sign In
+      <NavLink
+        to={ROUTES.USERS}
+        className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+      >
+        <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">Users</span>
+        <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
       </NavLink>
-      {/* only available to the administrator */}
-      <div className="relative group">
-        <NavLink
-          to={isAdmin ? ROUTES.ADD_PRODUCT : '#'}
-          className={`px-3 py-1 rounded-lg font-semibold transition-colors duration-200 ${isAdmin ? 'hover:bg-gray-800 text-gray-100' : 'text-gray-500 cursor-not-allowed opacity-50 pointer-events-none bg-gray-800/40'}`}
-          tabIndex={isAdmin ? 0 : -1}
-          aria-disabled={!isAdmin}
-        >
-          Add product
-        </NavLink>
-        {!isAdmin && (
-          <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max px-3 py-1 rounded bg-gray-800 text-gray-100 text-xs shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
-            Only admins can add products
-          </span>
-        )}
-      </div>
+      <NavLink
+        to={ROUTES.LOGIN}
+        className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+      >
+        <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">Sign In</span>
+        <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
+      </NavLink>
       {isAdmin && (
-        <NavLink to={ROUTES.ADMIN} className="hover:bg-gray-800 text-gray-100 font-semibold transition-colors duration-200 px-3 py-1 rounded-lg">
-          Admin
+        <NavLink
+          to={ROUTES.ADMIN}
+          className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+        >
+          <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">Admin</span>
+          <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
         </NavLink>
       )}
-      <NavLink to={ROUTES.USERS} className="hover:bg-gray-800 text-gray-100 font-semibold transition-colors duration-200 px-3 py-1 rounded-lg">
-        Users
-      </NavLink>
+      {isAdmin && (
+        <NavLink
+          to={ROUTES.ADD_PRODUCT}
+          className={({ isActive }) => `${isActive ? 'text-accent' : 'text-main'} relative inline-block group`}
+        >
+          <span className="font-medium px-1 py-2 uppercase hover:text-[#2196f3]">Add product</span>
+          <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
+        </NavLink>
+      )}
     </nav>
   );
 };

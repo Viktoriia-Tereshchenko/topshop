@@ -123,6 +123,7 @@ export const Registration = () => {
               <Field
                 name="password"
                 type="password"
+                autocomplete
                 className="mt-1 block w-full border rounded-md px-3 py-2"
               />
               <ErrorMessage
@@ -181,13 +182,13 @@ export const Registration = () => {
             <div className="flex justify-between items-center gap-4">
               <button
                 type="submit"
-                className="flex-1 bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-500"
+                className="flex-1 bg-accent text-white py-2 rounded-md hover:bg-indigo-500"
               >
                 Signup
               </button>
               <a
                 href={ROUTES.LOGIN}
-                className="flex-1 text-center bg-gray-100 text-indigo-600 py-2 rounded-md hover:bg-gray-200"
+                className="flex-1 text-center bg-gray-100 text-accent py-2 rounded-md hover:bg-gray-200"
               >
                 Signin
               </a>

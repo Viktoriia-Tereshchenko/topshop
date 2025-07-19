@@ -1,21 +1,23 @@
-import { Routes, Route } from 'react-router-dom';
-import { ROUTES } from '../constants/routes';
-import { MainLayout } from '../layouts/MainLayout';
-import { AuthProvider } from '../providers/AuthProvider';
-import ProductsPage from '../pages/ProductsPage/ProductsPage';
-import { AddProduct } from '../components/AddProduct/AddProduct';
-import { AdminDashboard } from '../pages/Admin/AdminDashboard';
-import { AdminLayout } from '../pages/Admin/AdminLayout';
-import { ProductsManagement } from '../pages/Admin/ProductsManagement';
-import { CategoriesManagement } from '../pages/Admin/CategoriesManagement';
-import { UsersManagement } from '../pages/Admin/UsersManagement';
-import Logout from '../components/Logout/Logout';
-import Login from '../components/Login/Login';
-import Registration from '../components/Registration/Registration';
-import UsersPage from '../pages/UsersPage/UsersPage';
-import Account from '../components/Account/Account';
-import AboutPage from '../pages/AboutPage/AboutPage';
-import HomePage from '../pages/HomePage/HomePage';
+import { Routes, Route } from "react-router-dom";
+import { ROUTES } from "../constants/routes";
+import { MainLayout } from "../layouts/MainLayout";
+import { AuthProvider } from "../providers/AuthProvider";
+import ProductsPage from "../pages/ProductsPage/ProductsPage";
+import { AddProduct } from "../components/AddProduct/AddProduct";
+import { AdminLayout } from "../pages/Admin/AdminLayout";
+import { AdminDashboard } from "../pages/Admin/AdminDashboard";
+import { ProductsManagement } from "../pages/Admin/ProductsManagement";
+import { CategoriesManagement } from "../pages/Admin/CategoriesManagement";
+import { UsersManagement } from "../pages/Admin/UsersManagement";
+import Logout from "../components/Logout/Logout";
+import Login from "../components/Login/Login";
+import Registration from "../components/Registration/Registration";
+import UsersPage from "../pages/UsersPage/UsersPage";
+import Account from "../components/Account/Account";
+import AboutPage from "../pages/AboutPage/AboutPage";
+import HomePage from "../pages/HomePage/HomePage";
+import Team from "../pages/Team/Team";
+import ApplicationForm from "../pages/Careers/ApplicationForm";
 
 export default function AppRoutes() {
   return (
@@ -33,8 +35,9 @@ export default function AppRoutes() {
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path={ROUTES.PRODUCTS} element={<ProductsPage />} />
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
+          <Route path="team" element={<Team />} />
+          <Route path="careers" element={<ApplicationForm />} />
         </Route>
-
         {/* Admin Routes */}
         <Route path={ROUTES.ADMIN} element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />

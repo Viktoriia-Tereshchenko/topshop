@@ -18,6 +18,7 @@ import AboutPage from "../pages/AboutPage/AboutPage";
 import HomePage from "../pages/HomePage/HomePage";
 import Team from "../pages/Team/Team";
 import ApplicationForm from "../pages/Careers/ApplicationForm";
+import CartPage from "../pages/CartPage/CartPage";
 
 export default function AppRoutes() {
   return (
@@ -37,6 +38,7 @@ export default function AppRoutes() {
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
           <Route path="team" element={<Team />} />
           <Route path="careers" element={<ApplicationForm />} />
+          <Route path={ROUTES.CART} element={<CartPage />} />
         </Route>
         {/* Admin Routes */}
         <Route path={ROUTES.ADMIN} element={<AdminLayout />}>

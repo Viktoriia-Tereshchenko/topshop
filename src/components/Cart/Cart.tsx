@@ -12,7 +12,7 @@ export default function Cart(): JSX.Element {
   if (cart.length === 0) {
     return (
       <p className="text-center text-gray-500 mt-10 text-xl">
-        🛒 You shopping cart is empty
+        🛒 Your shopping cart is empty
       </p>
     );
   }

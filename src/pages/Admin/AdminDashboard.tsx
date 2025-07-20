@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';

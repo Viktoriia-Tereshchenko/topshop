@@ -84,13 +84,15 @@ export default function UsersList() {
       )}
       {!loading && !error && (
         <>
-          <ul className="flex gap-2 w-full max-w-screen-xl justify-center items-center px-[200px]">
+          <ul className="flex  w-full max-w-screen-xl justify-center items-center px-[200px] gap-10">
             {visibleUsers.map((user) => (
               <li
                 key={user.id}
                 className="
                 flex-shrink-0 bg-white rounded-2xl overflow-hidden mx-auto 
-                max-w-[450px] rounded-b-[4px] shadow-[0px_1px_3px_rgba(0,0,0,0.12),0px_1px_1px_rgba(0,0,0,0.14),0px_2px_1px_rgba(0,0,0,0.2)]"
+                max-w-[450px] rounded-b-[4px] 
+                shadow-[0px_1px_3px_rgba(0,0,0,0.12),0px_1px_1px_rgba(0,0,0,0.14),0px_2px_1px_rgba(0,0,0,0.2)]
+                transform transition-transform duration-300 hover:scale-110"
                 style={{ width: `${100 / cardsPerPage}%` }}
               >
                 <UserCard user={user} />

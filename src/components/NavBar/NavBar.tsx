@@ -105,6 +105,16 @@ export const NavBar = () => {
           <span className="absolute left-0 bottom-0 h-[1px] w-full origin-right scale-x-0 transform bg-[#2196f3] transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
         </NavLink>
       ) : null}
+
+      <NavLink
+        to={ROUTES.CART}
+        className={({ isActive }) =>
+          `${
+            isActive ? "text-accent" : "text-main"
+          } relative inline-block group`
+        }
+      ></NavLink>
+
     </nav>
   );
 };

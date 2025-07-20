@@ -63,7 +63,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/contact"
+                    href="/contacts"
                     className="hover:underline hover:text-white text-neutral-500"
                   >
                     Contacts

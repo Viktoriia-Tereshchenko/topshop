@@ -78,7 +78,7 @@ export default function UsersList() {
     <div className="flex flex-col justify-center items-center">
       {loading && <p>Loading users...</p>}
       {error && (
-        <div className="text-red-600 font-semibold p-4">
+        <div className="text-secondary-700 font-semibold p-4">
           Failed to load users: {error}
         </div>
       )}

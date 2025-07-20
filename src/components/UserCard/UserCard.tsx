@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.jpg";
 import { ICONS } from "../../constants/icons";
 import type { User } from "../../types";

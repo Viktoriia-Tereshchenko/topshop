@@ -1,7 +1,7 @@
 export default function ApplicationForm() {
   return (
     <div>
-      <section className="h-screen flex flex-col items-center justify-center text-white text-base leading-loose bg-[url(https://www.ptworkers.com/assets/img/home3.png)] bg-no-repeat bg-center bg-cover">
+      <section className="h-screen flex flex-col items-center justify-center text-white text-base leading-loose bg-[url(./assets/bg-footer.png)] bg-no-repeat bg-center bg-cover">
         <div className="size-full flex justify-start">
           <div className="h-auto flex flex-col justify-center gap-6 w-1/4 p-6 ml-[20px] border border-gray-400 bg-black/40 rounded-l-lg shadow-lg">
             <h2 className="text-xl font-semibold text-center">Welcome to our team!</h2>

@@ -1,7 +1,7 @@
 export default function Team() {
   return (
     <div>
-      <section className="h-screen flex-col flex items-center justify-center text-white text-base leading-loose bg-[url(https://www.ptworkers.com/assets/img/home3.png)] bg-no-repeat bg-center bg-cover">
+      <section className="h-screen flex-col flex items-center justify-center text-white text-base leading-loose bg-[url(./assets/bg-footer.png)] bg-no-repeat bg-center bg-cover">
         <div className="size-full flex justify-start">
           <div className="h-full flex flex-col justify-center gap-10 w-1/4 p-6 border border-white/30 bg-black/50 ml-[20px]">
             <p>

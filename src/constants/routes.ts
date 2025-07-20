@@ -6,7 +6,7 @@ export const ROUTES = {
   ACCOUNT: "/account",
   PRODUCTS: "/products",
   USERS: "/users",
-  USER: "/users/:userId",
+  // USER: "/users/:userId",
   DELETE_USER: "",
   LOGIN: "/login",
   LOGOUT: "/logout",

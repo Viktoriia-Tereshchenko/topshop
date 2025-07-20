@@ -1,8 +1,8 @@
-import React from "react";
+import { type JSX } from "react";
 import { useCart } from "../../hooks/useCart";
 
-const Cart: React.FC = () => {
-  const { cart } = useCart();
+export default function Cart(): JSX.Element {
+  const { cart, removeFromCart, changeQuantity, clearCart } = useCart();
 
   const total = cart.reduce(
     (sum, item) => sum + item.product.price * item.quantity,
@@ -18,13 +18,13 @@ const Cart: React.FC = () => {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Корзина</h1>
-      <ul className="space-y-4">
+    <div className="p-6 max-w-4xl mx-auto">
+      <h1 className="text-3xl font-bold mb-4">🛒 Cart</h1>
+      <ul>
         {cart.map(({ product, quantity }) => (
           <li
             key={product.id}
-            className="flex items-center gap-4 border p-4 rounded-lg"
+            className="flex items-center gap-4 border p-4 rounded-lg border-blue-600 my-2"
           >
             <img
               src={product.images[0]}
@@ -33,17 +33,51 @@ const Cart: React.FC = () => {
             />
             <div className="flex-1">
               <h3 className="font-semibold">{product.title}</h3>
-              <p>
-                {quantity} x ${product.price}
-              </p>
+              <p className="text-sm text-gray-600">${product.price}</p>
+              <div className="flex items-center gap-2 mt-2">
+                <button
+                  onClick={() => changeQuantity(product.id, -1)}
+                  className="px-2 py-1 bg-gray-200 rounded hover:bg-secondary-600 hover:cursor-pointer"
+                >
+                  −
+                </button>
+                <span className="w-6 text-center">{quantity}</span>
+                <button
+                  onClick={() => changeQuantity(product.id, 1)}
+                  className="px-2 py-1 bg-gray-200 rounded hover:bg-secondary-600 hover:cursor-pointer"
+                >
+                  +
+                </button>
+                <button
+                  onClick={() => removeFromCart(product.id)}
+                  className="ml-4 text-secondary-700 hover:underline text-sm hover:cursor-pointer"
+                >
+                  remove
+                </button>
+              </div>
             </div>
-            <div className="font-bold">${product.price * quantity}</div>
+            <div className="font-bold">
+              ${(product.price * quantity).toFixed(2)}
+            </div>
           </li>
         ))}
       </ul>
-      <div className="text-right text-xl font-bold mt-6">Total: ${total}</div>
+
+      <div className="text-right mt-6 text-xl font-bold">
+        Итого: ${total.toFixed(2)}
+      </div>
+
+      <div className="flex justify-end items-center mt-4 space-x-2">
+        <button
+          onClick={clearCart}
+          className=" bg-secondary-600  text-white rounded-md hover:bg-indigo-500 px-4 py-2 hover:cursor-pointer"
+        >
+          Clear cart
+        </button>
+        <button className=" bg-accent text-white rounded-md hover:bg-indigo-500 px-4 py-2 hover:cursor-pointer">
+          Checkout
+        </button>
+      </div>
     </div>
   );
-};
-
-export default Cart;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useCart } from "../../hooks/useCart";
 
 interface Product {
   id: number;
@@ -28,6 +29,8 @@ const ProductsPage: React.FC = () => {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -129,6 +132,8 @@ const ProductsPage: React.FC = () => {
                   </div>
                   <div className="flex w-full items-center justify-between mb-1">
                     <div className="text-blue-600 font-bold text-xl">${product.price}</div>
+                    {/* add to cart */}
+                    <button type="button" className="hover:cursor-pointer"  onClick={() => addToCart(product) }>🛒</button>
                     <div className="text-gray-500 text-sm">{product.category.name}</div>
                   </div>
                 </div>
@@ -166,6 +171,8 @@ const ProductsPage: React.FC = () => {
                     </div>
                     <div className="flex w-full items-center justify-between mb-1">
                       <div className="text-blue-600 font-bold text-xl">${product.price}</div>
+                      {/* add to cart */}
+                      <button type="button" className="hover:cursor-pointer"  onClick={() => addToCart(product) }>🛒</button>
                       <div className="text-gray-500 text-sm">{product.category.name}</div>
                     </div>
                     <div className={`text-gray-700 text-sm text-center w-full ${isExpanded ? 'overflow-y-auto' : ''}`}

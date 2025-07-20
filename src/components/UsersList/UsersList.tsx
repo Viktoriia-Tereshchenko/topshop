@@ -7,12 +7,12 @@ export default function UsersList() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [page, setPage] = useState(0);
-  const [cardsPerPage, setCardsPerPage] = useState(4);
+  const [cardsPerPage, setCardsPerPage] = useState(5);
 
   function updateCardsPerPage() {
     const width = window.innerWidth;
     if (width >= 1280) {
-      setCardsPerPage(4);
+      setCardsPerPage(5);
     } else if (width >= 768) {
       setCardsPerPage(3);
     } else if (width >= 640) {
@@ -84,7 +84,9 @@ export default function UsersList() {
       )}
       {!loading && !error && (
         <>
-          <ul className="flex  w-full max-w-screen-xl justify-center items-center px-[200px] gap-10">
+          <ul
+            className="  flex w-full max-w-screen-xl justify-center items-stretch px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 gap-10"
+          >
             {visibleUsers.map((user) => (
               <li
                 key={user.id}

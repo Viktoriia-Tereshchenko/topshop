@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-accent: #2196f3;
@@ -8,9 +8,9 @@
   --color-secondary-600: #afb1b8;
   --color-secondary-500: #ffffff99;
   --color-secondary-100: #ffffff;
-  --font-main: 'Roboto', sans-serif;
-  --font-secondary: 'Raleway', sans-serif;
-  --font-team-title: 'Press Start 2P', system-ui;
+  --font-main: "Roboto", sans-serif;
+  --font-secondary: "Raleway", sans-serif;
+  --font-team-title: "Press Start 2P", system-ui;
 }
 
 /* Custom animations */
@@ -130,7 +130,7 @@ html {
 
 button:focus,
 a:focus,
-[role='button']:focus {
+[role="button"]:focus {
   outline: none;
 }
 

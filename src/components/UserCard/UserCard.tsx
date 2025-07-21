@@ -10,14 +10,16 @@ export default function UserCard({ user }: Props) {
   return (
     <div>
       {/* <Link to={`/users/${user.id}`}> */}
+      <div className="h-[60%] flex justify-center items-center pt-6">
       <img
         src={user.avatar}
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).src = avatar;
         }}
         alt={user.name}
-        className="w-full h-50 object-cover"
+        className="w-40 h-40 object-cover rounded-full"
       />
+      </div>
       {/* </Link> */}
       <div className="p-4 text-center">
         <h3 className="text-lg font-semibold text-gray-900 mb-1">
@@ -26,7 +28,7 @@ export default function UserCard({ user }: Props) {
         <p className="text-sm text-gray-500 mb-4">{user.role}</p>
         <div className="flex justify-center gap-4 text-gray-400">
           <div
-            className="cursor-pointer hover:text-pink-500 transition-colors duration-200"
+            className="cursor-pointer hover:text-accent transition-colors duration-200"
             title="Instagram"
             role="img"
             aria-label="Instagram icon"
@@ -34,7 +36,7 @@ export default function UserCard({ user }: Props) {
             {ICONS.INSTAGRAM}
           </div>
           <div
-            className="cursor-pointer hover:text-sky-500 transition-colors duration-200"
+            className="cursor-pointer hover:text-accent transition-colors duration-200"
             title="Twitter"
             role="img"
             aria-label="Twitter icon"
@@ -42,7 +44,7 @@ export default function UserCard({ user }: Props) {
             {ICONS.TWITTER}
           </div>
           <div
-            className="cursor-pointer hover:text-blue-600 transition-colors duration-200"
+            className="cursor-pointer hover:text-accent transition-colors duration-200"
             title="Facebook"
             role="img"
             aria-label="Facebook icon"
@@ -50,7 +52,7 @@ export default function UserCard({ user }: Props) {
             {ICONS.FACEBOOK}
           </div>
           <div
-            className="cursor-pointer hover:text-blue-700 transition-colors duration-200"
+            className="cursor-pointer hover:text-accent transition-colors duration-200"
             title="LinkedIn"
             role="img"
             aria-label="LinkedIn icon"
@@ -62,3 +64,31 @@ export default function UserCard({ user }: Props) {
     </div>
   );
 }
+
+/*
+
+        {developersArr.map((d) => (
+          <li
+            key={d.id}
+            className="w-[270px] h-[428px] rounded-[10px] overflow-hidden bg-secondary-100
+                shadow-[0px_1px_3px_rgba(0,0,0,0.12),0px_1px_1px_rgba(0,0,0,0.14),0px_2px_1px_rgba(0,0,0,0.2)]"
+          >
+            <div className="h-[60%] flex justify-center items-center">
+              <img
+                src={d ? d.image : avatar}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = avatar;
+                }}
+                alt={d.name}
+                className="size-3/4 object-cover rounded-[50%]"
+              />
+            </div>
+            <div className="flex flex-col items-center justify-center p-5 text-center">
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">{d.name || 'No name'}</h3>
+              <p className="text-sm text-gray-500 mb-1">{d.title}</p>
+              <p className="font-bold text-sm text-gray-500 mb-5">{d.role}</p>
+
+            </div>
+          </li>
+        ))}
+          */

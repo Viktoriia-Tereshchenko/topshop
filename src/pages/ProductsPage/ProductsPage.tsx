@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../hooks/useCart';
 import { useNavigate } from 'react-router-dom';
-import { buttonStyles } from '../../constants/buttonStyles';
+// import { buttonStyles } from '../../constants/buttonStyles';
 import Container from '../../components/Container/Container';
 
 interface Product {
@@ -195,8 +195,8 @@ const ProductsPage: React.FC = () => {
                               category: product.category.name,
                             });
                           }}
-                          className={`w-2/3 ${buttonStyles.smallSuccess} cursor-pointer py-1 text-sm`}
-                          // className={`w-2/3 bg-accent cursor-pointer py-1 text-sm`}
+                          // className={`w-2/3 ${buttonStyles.smallSuccess} cursor-pointer py-1 text-sm`}
+                          className={`w-2/3 inline-block bg-accent text-white px-6 rounded shadow hover:bg-blue-700 transition cursor-pointer py-1 text-sm`}
                         >
                           {getItemQuantity(product.id) > 0 ? `In Cart (${getItemQuantity(product.id)})` : 'Add to Cart'}
                         </button>

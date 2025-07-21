@@ -1,3 +1,5 @@
+import DevelopersList from '../../components/DevelopersList/DevelopersList';
+
 export default function AboutPage() {
   return (
     <div>
@@ -28,9 +30,8 @@ export default function AboutPage() {
         </div>
         <div className="w-1/2 bg-[url(/img-31.png)] bg-no-repeat bg-center bg-size-[100% 100%]"></div>
       </section>
-      <section>
-        <h2 className="mb-10 text-center text-3xl">Project team:</h2>
-        <ul></ul>
+      <section className="flex flex-col text-2xl">
+        <DevelopersList />
       </section>
     </div>
   );

@@ -105,7 +105,7 @@ const Cart: React.FC<CartProps> = ({ onClose, isDarkTheme = false }) => {
         <div className="flex gap-2 mt-4">
           <button
             onClick={clearCart}
-            className={`flex-1 px-3 py-1.5 text-sm rounded-lg transition-colors duration-200 cursor-pointer ${
+            className={`flex-1 px-3 py-1.5 text-sm rounded transition-colors duration-200 cursor-pointer ${
               isDarkTheme
                 ? "text-gray-300 border border-gray-600 hover:bg-gray-700"
                 : "text-gray-600 border border-gray-300 hover:bg-gray-50"
@@ -122,7 +122,7 @@ const Cart: React.FC<CartProps> = ({ onClose, isDarkTheme = false }) => {
                 navigate(ROUTES.NOT_AUTH);
               }
             }}
-            className="flex-1 px-3 py-1.5 text-sm bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-200 font-semibold cursor-pointer"
+            className="flex-1 px-3 py-1.5 text-sm  bg-accent text-white rounded hover:bg-blue-700 transition-all duration-200 font-semibold cursor-pointer"
           >
             Checkout
           </button>

@@ -75,10 +75,10 @@ const CartIcon: React.FC = () => {
             }`}>
               <button
                 onClick={handleViewCart}
-                className={`w-full py-1 px-4 rounded-lg font-elegant font-medium transition-colors duration-200 cursor-pointer ${
+                className={`w-full py-1 px-4 rounded font-elegant font-medium transition-colors duration-200 cursor-pointer ${
                   isAdminPanel
-                    ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                    : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                    ? 'bg-accent text-white hover:bg-blue-700'
+                    : 'bg-accent text-white hover:bg-blue-700'
                 }`}
               >
                 View Full Cart

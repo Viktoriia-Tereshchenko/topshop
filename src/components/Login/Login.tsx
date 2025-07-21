@@ -1,19 +1,19 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useEffect, useState } from 'react';
-import * as Yup from 'yup';
-import { useCurrentUser } from '../../hooks/useCurrentUser';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../constants/routes';
-import Container from '../Container/Container';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useEffect, useState } from "react";
+import * as Yup from "yup";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
+import Container from "../Container/Container";
 
 const SignupSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
+  email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .required('Required')
-    .min(2, 'Too Short!')
-    .matches(/[A-Z]/, 'Minimum one capital letter')
-    .matches(/[0-9]/, 'Minimum one digit')
-    .max(50, 'Too Long!'),
+    .required("Required")
+    .min(2, "Too Short!")
+    .matches(/[A-Z]/, "Minimum one capital letter")
+    .matches(/[0-9]/, "Minimum one digit")
+    .max(50, "Too Long!"),
 });
 
 interface Credentials {
@@ -22,42 +22,42 @@ interface Credentials {
 }
 
 export const Login = () => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const { isAuthorized, setIsAuthorized } = useCurrentUser();
   const navigate = useNavigate();
 
   async function fetchLogin(credentials: Credentials) {
     try {
-      console.log('Attempting login with:', credentials);
-      
-      const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      console.log("Attempting login with:", credentials);
+
+      const res = await fetch("https://api.escuelajs.co/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),
       });
 
-      console.log('Login response status:', res.status);
-      console.log('Login response ok:', res.ok);
+      console.log("Login response status:", res.status);
+      console.log("Login response ok:", res.ok);
 
       if (res.ok) {
         const data = await res.json();
-        console.log('Login response data:', data);
-        
-        setMessage('Successfully login');
+        console.log("Login response data:", data);
+
+        setMessage("Successfully login");
 
         const { access_token } = data;
-        localStorage.setItem('accessToken', access_token);
-        localStorage.setItem('isAuthorized', 'true');
+        localStorage.setItem("accessToken", access_token);
+        localStorage.setItem("isAuthorized", "true");
         setIsAuthorized(true);
         navigate(ROUTES.HOME);
       } else {
         const errorData = await res.json();
-        console.error('Login error:', errorData);
-        setMessage('Login failed: ' + (errorData.message || 'Unknown error'));
+        console.error("Login error:", errorData);
+        setMessage("Login failed: " + (errorData.message || "Unknown error"));
       }
     } catch (error) {
-      console.error('Login error:', error);
-      setMessage('Login failed: Network error');
+      console.error("Login error:", error);
+      setMessage("Login failed: Network error");
     }
   }
   useEffect(() => {
@@ -73,8 +73,8 @@ export const Login = () => {
         <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
         <Formik
           initialValues={{
-            email: '',
-            password: '',
+            email: "",
+            password: "",
           }}
           validationSchema={SignupSchema}
           onSubmit={(values) => {
@@ -86,35 +86,56 @@ export const Login = () => {
             <Form className="max-w-md mx-auto space-y-4">
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Email
                 </label>
-                <Field name="email" type="text" className="mt-1 block w-full border rounded-md px-3 py-2" />
-                <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                <Field
+                  name="email"
+                  type="text"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none focus:shadow-none  focus:border-blue-500"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
               </div>
 
               {/* Password */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Password
                 </label>
                 <Field
                   name="password"
                   type="password"
                   autoComplete="true"
-                  className="mt-1 block w-full border rounded-md px-3 py-2"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none focus:shadow-none  focus:border-blue-500"
                 />
-                <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
               </div>
 
               {/* Submit */}
               <div className="flex justify-between items-center gap-4">
-                <button type="submit" className="flex-1 bg-accent text-white py-2 rounded-md hover:bg-indigo-500">
+                <button
+                  type="submit"
+                  className="flex-1 bg-accent text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition"
+                >
                   Signin
                 </button>
                 <a
                   href={ROUTES.REGISTRATION}
-                  className="flex-1 text-center bg-gray-100 text-accent py-2 rounded-md hover:bg-gray-200"
+                  className="flex-1 text-center bg-gray-100 text-accent px-6 py-2 rounded hover:bg-gray-200"
                 >
                   Signup
                 </a>

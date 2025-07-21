@@ -109,7 +109,8 @@ const CheckoutPage: React.FC = () => {
             <p className="text-gray-500 mb-4">Add some products to proceed with checkout</p>
             <button
               onClick={() => navigate('/products')}
-              className={`${buttonStyles.primary} px-6 py-3 font-elegant font-medium`}
+              // className={`${buttonStyles.primary} px-6 py-3 font-elegant font-medium`}
+              className="bg-accent px-6 py-3 font-elegant font-medium rounded-xl shadow hover:bg-blue-700 transition"
             >
               Continue Shopping
             </button>

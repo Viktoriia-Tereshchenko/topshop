@@ -65,7 +65,7 @@ export default function Footer() {
               <h2 className="text-white font-semibold mb-2">Subscribe</h2>
               <form className="flex flex-col">
                 <input type="email" placeholder="Email" className="p-2 rounded bg-gray-800 text-white mb-2" />
-                <button className="cursor-pointer bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white">
+                <button className="cursor-pointer bg-accent hover:bg-blue-700 px-4 py-2 rounded text-white">
                   Subscribe
                 </button>
               </form>

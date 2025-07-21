@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import avatar from '../../assets/avatar.jpg';
 
 interface Product {
   id: number;
@@ -40,17 +40,21 @@ export const AdminDashboard = () => {
           fetch(USERS_API),
           fetch(CATEGORIES_API),
         ]);
-        
+
         if (!productsRes.ok || !usersRes.ok || !categoriesRes.ok) {
           throw new Error('Failed to fetch data from API');
         }
-        
+
         const productsData = await productsRes.json();
         const usersData = await usersRes.json();
         const categoriesData = await categoriesRes.json();
-        
-        console.log('Data fetched successfully:', { products: productsData.length, users: usersData.length, categories: categoriesData.length });
-        
+
+        console.log('Data fetched successfully:', {
+          products: productsData.length,
+          users: usersData.length,
+          categories: categoriesData.length,
+        });
+
         setProducts(productsData);
         setUsers(usersData);
         setCategories(categoriesData);
@@ -64,7 +68,7 @@ export const AdminDashboard = () => {
     fetchData();
   }, []);
 
- const formatDate = (dateString: string) => {
+  const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString();
   };
 
@@ -89,7 +93,7 @@ export const AdminDashboard = () => {
       <div className="mb-6">
         <h1 className="text-2xl font-elegant font-bold text-gray-100">Admin Dashboard</h1>
       </div>
-      
+
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-gray-800 rounded-xl p-6 text-center text-gray-100 shadow-lg border border-gray-700">
@@ -151,12 +155,12 @@ export const AdminDashboard = () => {
                     <td className="py-2">{user.name}</td>
                     <td className="py-2">{user.email}</td>
                     <td className="py-2">
-                      <img 
-                        src={user.avatar} 
+                      <img
+                        src={user.avatar}
                         alt={user.name}
                         className="w-8 h-8 rounded-full object-cover"
                         onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = 'https://via.placeholder.com/32x32';
+                          (e.currentTarget as HTMLImageElement).src = avatar;
                         }}
                       />
                     </td>
@@ -169,4 +173,4 @@ export const AdminDashboard = () => {
       </div>
     </div>
   );
-}; 
+};

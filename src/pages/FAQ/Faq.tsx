@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function FAQPage() {
   const [showMore, setShowMore] = useState(false);
@@ -7,21 +7,26 @@ export default function FAQPage() {
 
   return (
     <div>
-      <section className="h-screen flex flex-col items-center justify-center text-white text-base leading-loose bg-[url(./assets/bg-footer.png)] bg-no-repeat bg-center bg-cover">
+      <section className="min-h-screen flex flex-col items-center justify-center text-white text-base leading-loose bg-[url(./assets/bg-footer.png)] bg-no-repeat bg-center bg-cover py-[120px]">
         <div className="size-full flex justify-center">
           {/* Левая часть — вопросы */}
-          <div className="h-auto flex flex-col justify-center gap-6 w-2/5 p-6 mr-[10px] border-r border-gray-400 bg-black/40 rounded-l-lg shadow-lg">
+          <div className="h-auto flex flex-col justify-start gap-6 w-2/5 py-20 px-10 mr-[10px] border-r border-gray-400 bg-black/50 rounded-l-lg shadow-lg">
             <h2 className="text-xl font-semibold text-center">❓ Frequently Asked Questions</h2>
 
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold text-lg">How do I join the team?</h3>
-                <p className="text-sm">You can apply by filling out our application form. We’ll review and get back to you shortly!</p>
+                <p className="text-sm">
+                  You can apply by filling out our application form. We’ll review and get back to you shortly!
+                </p>
               </div>
 
               <div>
                 <h3 className="font-semibold text-lg">What qualifications do I need?</h3>
-                <p className="text-sm">We look for passionate individuals with teamwork and creativity. No strict requirements, just dedication!</p>
+                <p className="text-sm">
+                  We look for passionate individuals with teamwork and creativity. No strict requirements, just
+                  dedication!
+                </p>
               </div>
 
               <div>
@@ -34,7 +39,9 @@ export default function FAQPage() {
                 <>
                   <div>
                     <h3 className="font-semibold text-lg">Do I need specific software?</h3>
-                    <p className="text-sm">Just basic tools like Discord and access to shared documents. We help you set everything up!</p>
+                    <p className="text-sm">
+                      Just basic tools like Discord and access to shared documents. We help you set everything up!
+                    </p>
                   </div>
 
                   <div>
@@ -45,17 +52,14 @@ export default function FAQPage() {
               )}
 
               {/* Кнопка показать больше */}
-              <button
-                onClick={handleToggle}
-                className="text-blue-400 hover:underline text-sm mt-2"
-              >
-                {showMore ? "Show less ▲" : "Show more ▼"}
+              <button onClick={handleToggle} className="text-blue-400 hover:underline text-sm mt-2">
+                {showMore ? 'Show less ▲' : 'Show more ▼'}
               </button>
             </div>
           </div>
 
           {/* Правая часть — дополнительная информация */}
-          <div className="h-auto flex flex-col justify-center gap-6 w-2/5 p-6 ml-[10px] bg-black/40 rounded-r-lg shadow-lg">
+          <div className="h-auto flex flex-col justify-start gap-6 w-2/5 py-20 px-10 ml-[10px] bg-black/50 rounded-r-lg shadow-lg">
             <h2 className="text-xl font-semibold text-center">📋 More Info</h2>
 
             <ul className="list-disc pl-5 space-y-2 text-sm">

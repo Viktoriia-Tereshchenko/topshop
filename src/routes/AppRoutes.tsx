@@ -7,7 +7,7 @@ import ProductDetailPage from '../pages/ProductDetailPage/ProductDetailPage';
 import CheckoutPage from '../pages/CheckoutPage/CheckoutPage';
 import CheckoutSuccessPage from '../pages/CheckoutSuccessPage/CheckoutSuccessPage';
 import { AddProduct } from '../components/AddProduct/AddProduct';
-import { AdminLayout } from '../pages/Admin/AdminLayout';
+import { AdminLayout } from '../layouts/AdminLayout';
 import { AdminDashboard } from '../pages/Admin/AdminDashboard';
 import { ProductsManagement } from '../pages/Admin/ProductsManagement';
 import { CategoriesManagement } from '../pages/Admin/CategoriesManagement';

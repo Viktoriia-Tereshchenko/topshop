@@ -142,12 +142,12 @@ select:focus {
 }
 
 /* Special focus styles for login/registration pages */
-.py-\[120px\] input:focus,
+/* .py-\[120px\] input:focus,
 .py-\[120px\] textarea:focus,
 .py-\[120px\] select:focus {
   border-width: 2px;
   border-color: #000000;
-}
+} */
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

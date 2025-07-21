@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useCurrentUser } from '../../hooks/useCurrentUser';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../constants/routes';
+
 
 interface Product {
   id: number;
@@ -32,9 +30,6 @@ export const AdminDashboard = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showUserMenu, setShowUserMenu] = useState(false);
-  const { user, logout } = useCurrentUser();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,12 +64,7 @@ export const AdminDashboard = () => {
     fetchData();
   }, []);
 
-  const handleLogout = () => {
-    logout();
-    navigate(ROUTES.LOGIN);
-  };
-
-  const formatDate = (dateString: string) => {
+ const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString();
   };
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
-import { buttonStyles } from '../../constants/buttonStyles';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
 
 interface Product {
@@ -16,13 +15,11 @@ interface Product {
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { addToCart, getItemQuantity } = useCart();
+  const { addToCart} = useCart();
   const { isAuthorized } = useCurrentUser();
   
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   // State for hovered image
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
@@ -72,41 +69,25 @@ const ProductDetailPage: React.FC = () => {
 
   const handleAddToCart = () => {
     if (!product) return;
-    
-    // Add the selected quantity to cart
-    for (let i = 0; i < quantity; i++) {
-      addToCart({
+    addToCart({
         id: product.id,
         title: product.title,
         price: product.price,
         image: product.images[0],
         category: product.category.name
       });
-    }
-  };
+    };
 
   const handleBuyNow = () => {
     if (!product) return;
-    
-    // Add the selected quantity to cart
-    for (let i = 0; i < quantity; i++) {
-      addToCart({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        image: product.images[0],
-        category: product.category.name
-      });
-    }
-    
-    // Navigate to checkout
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.images[0],
+      category: product.category.name
+    });
     navigate('/checkout');
-  };
-
-  const handleQuantityChange = (newQuantity: number) => {
-    if (newQuantity >= 1 && newQuantity <= 10) {
-      setQuantity(newQuantity);
-    }
   };
 
   if (loading) {

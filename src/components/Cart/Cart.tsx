@@ -15,11 +15,6 @@ const Cart: React.FC<CartProps> = ({ onClose, isDarkTheme = false }) => {
   // Debug: log cart state
   console.log('Cart component - Cart state:', state);
 
-  const handleCheckout = () => {
-    // TODO: Implement checkout functionality
-    console.log('Proceeding to checkout...');
-  };
-
   if (state.items.length === 0) {
     return (
       <div className="p-3">

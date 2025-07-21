@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../constants/routes';
 import CartItem from '../../components/Cart/CartItem';
+import { useState } from 'react';
 
 export const CartPage = () => {
-  const { state, clearCart, updateQuantity, removeFromCart } = useCart();
+  const { state, clearCart } = useCart();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 

@@ -22,5 +22,6 @@ export const ROUTES = {
   CAREERS: "/careers",
   FAQ: "/faq",
   HELPCENTER: "/helpcenter",
-  CONTACTS: "/contacts"
+  CONTACTS: "/contacts",
+  NOT_AUTH: "/notauthorized",
 } as const;

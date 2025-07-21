@@ -1,14 +1,24 @@
-import { useCart } from '../../hooks/useCart';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../constants/routes';
-import CartItem from '../../components/Cart/CartItem';
-import { useState } from 'react';
-import Container from '../../components/Container/Container';
+import { useCart } from "../../hooks/useCart";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
+import CartItem from "../../components/Cart/CartItem";
+import { useState } from "react";
+import Container from "../../components/Container/Container";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
 
 export const CartPage = () => {
   const { state, clearCart } = useCart();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+
+  const { isAuthorized } = useCurrentUser();
+  const handleClick = () => {
+    if (isAuthorized) {
+      handleCheckout();
+    } else {
+      navigate(ROUTES.NOT_AUTH);
+    }
+  };
 
   const handleCheckout = () => {
     setIsLoading(true);
@@ -30,7 +40,9 @@ export const CartPage = () => {
           <div className="max-w-4xl mx-auto px-4">
             {/* Header */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl font-elegant font-bold text-gray-900 mb-4">Shopping Cart</h1>
+              <h1 className="text-4xl font-elegant font-bold text-gray-900 mb-4">
+                Shopping Cart
+              </h1>
               <p className="text-lg text-gray-600">Your cart is empty</p>
             </div>
 
@@ -39,8 +51,12 @@ export const CartPage = () => {
               <div className="w-32 h-32 mx-auto mb-8 text-gray-300">
                 <span className="text-8xl transform scale-x-[-1]">🛒</span>
               </div>
-              <h2 className="text-2xl font-elegant font-semibold text-gray-900 mb-4">Your cart is empty</h2>
-              <p className="text-gray-600 mb-8">Looks like you haven't added any items to your cart yet.</p>
+              <h2 className="text-2xl font-elegant font-semibold text-gray-900 mb-4">
+                Your cart is empty
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Looks like you haven't added any items to your cart yet.
+              </p>
               <button
                 onClick={handleContinueShopping}
                 className="bg-indigo-600 text-white px-8 py-1.5 rounded-lg font-elegant font-semibold hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl cursor-pointer"
@@ -60,9 +76,12 @@ export const CartPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-elegant font-bold text-gray-900 mb-2">Shopping Cart</h1>
+            <h1 className="text-4xl font-elegant font-bold text-gray-900 mb-2">
+              Shopping Cart
+            </h1>
             <p className="text-lg text-gray-600">
-              {state.itemCount} {state.itemCount === 1 ? 'item' : 'items'} in your cart
+              {state.itemCount} {state.itemCount === 1 ? "item" : "items"} in
+              your cart
             </p>
           </div>
 
@@ -71,7 +90,9 @@ export const CartPage = () => {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
                 <div className="p-6 border-b border-gray-200">
-                  <h2 className="text-xl font-elegant font-semibold text-gray-900">Cart Items</h2>
+                  <h2 className="text-xl font-elegant font-semibold text-gray-900">
+                    Cart Items
+                  </h2>
                 </div>
 
                 <div className="divide-y divide-gray-200">
@@ -88,7 +109,12 @@ export const CartPage = () => {
                     onClick={clearCart}
                     className="text-red-600 hover:text-red-700 font-medium transition-colors duration-200 flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-red-50 cursor-pointer"
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -105,13 +131,19 @@ export const CartPage = () => {
             {/* Order Summary */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 sticky top-8">
-                <h2 className="text-xl font-elegant font-semibold text-gray-900 mb-6">Order Summary</h2>
+                <h2 className="text-xl font-elegant font-semibold text-gray-900 mb-6">
+                  Order Summary
+                </h2>
 
                 {/* Summary Details */}
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Subtotal ({state.itemCount} items)</span>
-                    <span className="font-semibold text-gray-900">${state.total.toFixed(2)}</span>
+                    <span className="text-gray-600">
+                      Subtotal ({state.itemCount} items)
+                    </span>
+                    <span className="font-semibold text-gray-900">
+                      ${state.total.toFixed(2)}
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Shipping</span>
@@ -119,12 +151,18 @@ export const CartPage = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Tax</span>
-                    <span className="font-semibold text-gray-900">${(state.total * 0.1).toFixed(2)}</span>
+                    <span className="font-semibold text-gray-900">
+                      ${(state.total * 0.1).toFixed(2)}
+                    </span>
                   </div>
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-semibold text-gray-900">Total</span>
-                      <span className="text-2xl font-bold text-gray-900">${(state.total * 1.1).toFixed(2)}</span>
+                      <span className="text-lg font-semibold text-gray-900">
+                        Total
+                      </span>
+                      <span className="text-2xl font-bold text-gray-900">
+                        ${(state.total * 1.1).toFixed(2)}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -132,7 +170,7 @@ export const CartPage = () => {
                 {/* Action Buttons */}
                 <div className="space-y-3">
                   <button
-                    onClick={handleCheckout}
+                    onClick={handleClick}
                     disabled={isLoading}
                     className="w-full bg-indigo-600 text-white py-1.5 px-6 rounded-lg font-elegant font-semibold hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                   >
@@ -179,7 +217,12 @@ export const CartPage = () => {
                 {/* Security Badge */}
                 <div className="mt-6 pt-6 border-t border-gray-200">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"

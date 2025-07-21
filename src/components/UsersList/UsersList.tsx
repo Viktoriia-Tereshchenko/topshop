@@ -88,7 +88,9 @@ export default function UsersList() {
                 flex-shrink-0 bg-white rounded-2xl overflow-hidden mx-auto 
                 max-w-[450px] rounded-b-[4px] 
                 shadow-[0px_1px_3px_rgba(0,0,0,0.12),0px_1px_1px_rgba(0,0,0,0.14),0px_2px_1px_rgba(0,0,0,0.2)]
-                transform transition-transform duration-300 hover:scale-105"
+                transform transition-transform duration-300 hover:scale-105
+                 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-500/20"
+                 //hover:bg-blue-50
                 style={{ width: `${100 / cardsPerPage}%` }}
               >
                 <UserCard user={user} />

@@ -59,7 +59,8 @@ const CheckoutSuccessPage: React.FC = () => {
           <div className="space-y-4">
             <button
               onClick={() => navigate('/products')}
-              className={`w-full ${buttonStyles.primary} py-3 font-elegant font-medium`}
+              // className={`w-full ${buttonStyles.primary} py-3 font-elegant font-medium`}
+              className="w-full  bg-accent rounded shadow hover:bg-blue-700 text-white transition py-3 font-elegant font-medium"
             >
               Continue Shopping
             </button>

@@ -196,7 +196,7 @@ const ProductsPage: React.FC = () => {
                             });
                           }}
                           // className={`w-2/3 ${buttonStyles.smallSuccess} cursor-pointer py-1 text-sm`}
-                          className={`w-2/3 inline-block bg-accent text-white px-6 rounded shadow hover:bg-blue-700 transition cursor-pointer py-1 text-sm`}
+                          className="min-w-[160px] bg-accent text-white px-6 py-2 text-sm rounded shadow hover:bg-blue-700 transition cursor-pointer text-center"
                         >
                           {getItemQuantity(product.id) > 0 ? `In Cart (${getItemQuantity(product.id)})` : 'Add to Cart'}
                         </button>

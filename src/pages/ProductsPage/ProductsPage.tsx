@@ -3,6 +3,7 @@ import { useCart } from "../../hooks/useCart";
 import { useNavigate } from "react-router-dom";
 import { buttonStyles } from "../../constants/buttonStyles";
 
+
 interface Product {
   id: number;
   title: string;
@@ -29,6 +30,8 @@ const ProductsPage: React.FC = () => {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
   const { addToCart, getItemQuantity } = useCart();
   const navigate = useNavigate();
+
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -139,6 +142,7 @@ const ProductsPage: React.FC = () => {
                 className={`group cursor-pointer ${isInitialLoad ? 'animate-fade-in-up' : ''}`}
                 style={isInitialLoad ? { animationDelay: `${index * 0.1}s` } : {}}
               >
+
                 <div 
                   onClick={() => navigate(`/products/${product.id}`)}
                   className="bg-white rounded-xl p-4 shadow-md transition-all duration-300 border border-gray-100 group-hover:shadow-xl group-hover:shadow-blue-500/20 overflow-hidden relative h-[380px] flex flex-col cursor-pointer"
@@ -155,9 +159,11 @@ const ProductsPage: React.FC = () => {
                     <div className="absolute top-2 right-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full text-sm font-bold shadow-md">
                       ${product.price}
                     </div>
+
                     {/* Category badge */}
                     <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm text-gray-700 px-2 py-1 rounded-full text-xs font-medium">
                       {product.category.name}
+
                     </div>
                   </div>
                   

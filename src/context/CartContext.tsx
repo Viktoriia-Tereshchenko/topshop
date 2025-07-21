@@ -16,8 +16,6 @@ export interface CartState {
   itemCount: number;
 }
 
-
-
 export interface CartContextType {
   state: CartState;
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
@@ -28,8 +26,3 @@ export interface CartContextType {
 }
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
-
-
-
-
-

@@ -22,6 +22,11 @@ import AboutPage from "../pages/AboutPage/AboutPage";
 import HomePage from "../pages/HomePage/HomePage";
 import Team from "../pages/Team/Team";
 import ApplicationForm from "../pages/Careers/ApplicationForm";
+import CartPage from "../pages/CartPage/CartPage";
+import FAQPage from "../pages/FAQ/Faq";
+import HelpCenterPage from "../pages/HelpCenter/HelpCenterPage";
+import Contacts from "../pages/Contacts/Contacts";
+
 
 export default function AppRoutes() {
   return (
@@ -43,8 +48,12 @@ export default function AppRoutes() {
           <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
           <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
-          <Route path="team" element={<Team />} />
-          <Route path="careers" element={<ApplicationForm />} />
+          <Route path={ROUTES.TEAM} element={<Team />} />
+          <Route path={ROUTES.CAREERS} element={<ApplicationForm />} />
+          <Route path={ROUTES.FAQ} element={<FAQPage />} />
+          <Route path={ROUTES.HELPCENTER} element={<HelpCenterPage />} />
+          <Route path={ROUTES.CONTACTS} element={<Contacts />} />
+          <Route path={ROUTES.CART} element={<CartPage />} />
         </Route>
         {/* Admin Routes */}
         <Route path={ROUTES.ADMIN} element={<AdminLayout />}>

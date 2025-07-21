@@ -26,6 +26,7 @@ import FAQPage from '../pages/FAQ/Faq';
 import HelpCenterPage from '../pages/HelpCenter/HelpCenterPage';
 import Contacts from '../pages/Contacts/Contacts';
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
+import NotAuthorizedPage from '../pages/NotAuthorizedPage/NotAuthorizedPage';
 
 export default function AppRoutes() {
   return (
@@ -52,6 +53,7 @@ export default function AppRoutes() {
           <Route path={ROUTES.HELPCENTER} element={<HelpCenterPage />} />
           <Route path={ROUTES.CONTACTS} element={<Contacts />} />
           <Route path={ROUTES.CART} element={<CartPage />} />
+          <Route path={ROUTES.NOT_AUTH} element={<NotAuthorizedPage />} />
         </Route>
         {/* Admin Routes */}
         <Route path={ROUTES.ADMIN} element={<AdminLayout />}>

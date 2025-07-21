@@ -196,6 +196,7 @@ const ProductsPage: React.FC = () => {
                             });
                           }}
                           className={`w-2/3 ${buttonStyles.smallSuccess} cursor-pointer py-1 text-sm`}
+                          // className={`w-2/3 bg-accent cursor-pointer py-1 text-sm`}
                         >
                           {getItemQuantity(product.id) > 0 ? `In Cart (${getItemQuantity(product.id)})` : 'Add to Cart'}
                         </button>

@@ -85,7 +85,7 @@ export const Registration = () => {
                 <Field
                   name="name"
                   type="text"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
                 />
                 <ErrorMessage
                   name="name"
@@ -105,7 +105,7 @@ export const Registration = () => {
                 <Field
                   name="email"
                   type="text"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
                 />
                 <ErrorMessage
                   name="email"
@@ -126,7 +126,7 @@ export const Registration = () => {
                   name="password"
                   type="password"
                   autoComplete="true"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
                 />
                 <ErrorMessage
                   name="password"
@@ -147,7 +147,7 @@ export const Registration = () => {
                   as="select"
                   name="role"
                   id="role"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
                 >
                   <option value="">Select role</option>
                   <option value={roles.ADMIN}>{roles.ADMIN}</option>
@@ -171,7 +171,7 @@ export const Registration = () => {
                 <Field
                   name="avatar"
                   type="text"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none"
                 />
                 <ErrorMessage
                   name="avatar"

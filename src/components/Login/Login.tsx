@@ -95,7 +95,7 @@ export const Login = () => {
                 <Field
                   name="email"
                   type="text"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none focus:shadow-none  focus:border-blue-500"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300  rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none "
                 />
                 <ErrorMessage
                   name="email"
@@ -116,7 +116,7 @@ export const Login = () => {
                   name="password"
                   type="password"
                   autoComplete="true"
-                  className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none focus:shadow-none  focus:border-blue-500"
+                  className="mt-1 block w-full px-4 py-3 border border-gray-300  rounded-lg focus:ring-0 focus:ring-blue-500 focus:border-transparent focus:outline-none focus:shadow-none "
                 />
                 <ErrorMessage
                   name="password"

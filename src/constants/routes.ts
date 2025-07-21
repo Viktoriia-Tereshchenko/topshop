@@ -16,6 +16,8 @@ export const ROUTES = {
   ADMIN_PRODUCTS: "/admin/products",
   ADMIN_CATEGORIES: "/admin/categories",
   ADMIN_USERS: "/admin/users",
+  CART: "/cart",
+  CHECKOUT: "/checkout",
 } as const;
 
 export const PRODUCTS = '/products';

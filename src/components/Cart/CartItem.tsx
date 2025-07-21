@@ -1,7 +1,7 @@
 import React from 'react';
-import { useCart } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import type { CartItem as CartItemType } from '../../context/CartContext';
+import { useCart } from '../../hooks/useCart';
 
 interface CartItemProps {
   item: CartItemType;

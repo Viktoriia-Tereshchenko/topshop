@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useCart } from '../../context/CartContext';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
+import { useCart } from '../../hooks/useCart';
 
 interface Product {
   id: number;

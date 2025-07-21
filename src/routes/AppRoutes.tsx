@@ -3,6 +3,10 @@ import { ROUTES } from "../constants/routes";
 import { MainLayout } from "../layouts/MainLayout";
 import { AuthProvider } from "../providers/AuthProvider";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
+import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
+import CheckoutSuccessPage from "../pages/CheckoutSuccessPage/CheckoutSuccessPage";
+import CartPage from "../pages/CartPage/CartPage";
 import { AddProduct } from "../components/AddProduct/AddProduct";
 import { AdminLayout } from "../pages/Admin/AdminLayout";
 import { AdminDashboard } from "../pages/Admin/AdminDashboard";
@@ -29,7 +33,7 @@ export default function AppRoutes() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} /> page
+          <Route index element={<HomePage />} />
           <Route path={ROUTES.REGISTRATION} element={<Registration />} />
           <Route path={ROUTES.ABOUT} element={<AboutPage />} />
           <Route path={ROUTES.ACCOUNT} element={<Account />} />
@@ -39,6 +43,10 @@ export default function AppRoutes() {
           <Route path={ROUTES.LOGOUT} element={<Logout />} />
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path={ROUTES.PRODUCTS} element={<ProductsPage />} />
+          <Route path="/products/:id" element={<ProductDetailPage />} />
+          <Route path={ROUTES.CART} element={<CartPage />} />
+          <Route path={ROUTES.CHECKOUT} element={<CheckoutPage />} />
+          <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
           <Route path={ROUTES.TEAM} element={<Team />} />
           <Route path={ROUTES.CAREERS} element={<ApplicationForm />} />

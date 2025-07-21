@@ -17,16 +17,10 @@ export const ROUTES = {
   ADMIN_CATEGORIES: "/admin/categories",
   ADMIN_USERS: "/admin/users",
   CART: "/cart",
+  CHECKOUT: "/checkout",
   TEAM: "/team",
   CAREERS: "/careers",
   FAQ: "/faq",
   HELPCENTER: "/helpcenter",
   CONTACTS: "/contacts"
-
 } as const;
-
-export const PRODUCTS = "/products";
-export const ADMIN = "/admin";
-export const ADMIN_PRODUCTS = "/admin/products";
-export const ADMIN_CATEGORIES = "/admin/categories";
-export const ADMIN_USERS = "/admin/users";

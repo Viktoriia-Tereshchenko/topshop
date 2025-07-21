@@ -10,7 +10,7 @@ export default function HomePage() {
       </h1>
       <Link
         to={ROUTES.PRODUCTS}
-        className="px-6 py-3 font-semibold text-white backdrop-blur-sm rounded hover:bg-accent/50 shadow-[0_4px_10px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)]"
+        className="px-6 py-3 font-semibold text-white backdrop-blur-sm rounded hover:bg-accent shadow-[0_4px_10px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.5)]"
       >
         Go to Products
       </Link>

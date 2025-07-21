@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useCart } from '../../hooks/useCart';
 import { useNavigate } from 'react-router-dom';
 import { buttonStyles } from '../../constants/buttonStyles';
+import Container from '../../components/Container/Container';
 
 interface Product {
   id: number;
@@ -101,119 +102,121 @@ const ProductsPage: React.FC = () => {
         <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-white/10 rounded-full animate-spin"></div>
       </div>
 
-      {/* Categories with simplified design */}
-      <div className="max-w-7xl mx-auto px-8 mb-12">
-        <div className="flex flex-wrap gap-3 justify-center">
-          <button
-            className={`px-3 py-1 rounded-full border transition-all duration-200 ${
-              selectedCategory === null
-                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/30'
-                : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md hover:shadow-blue-500/20'
-            }`}
-            onClick={() => setSelectedCategory(null)}
-          >
-            <span className="font-elegant font-medium text-sm">All</span>
-          </button>
-          {categories.map((cat) => (
+      <Container>
+        {/* Categories with simplified design */}
+        <div className="max-w-7xl mx-auto px-8 mb-12">
+          <div className="flex flex-wrap gap-3 justify-center">
             <button
-              key={cat.id}
               className={`px-3 py-1 rounded-full border transition-all duration-200 ${
-                selectedCategory === cat.id
+                selectedCategory === null
                   ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/30'
                   : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md hover:shadow-blue-500/20'
               }`}
-              onClick={() => setSelectedCategory(cat.id)}
+              onClick={() => setSelectedCategory(null)}
             >
-              <span className="font-elegant font-medium text-sm">{cat.name}</span>
+              <span className="font-elegant font-medium text-sm">All</span>
             </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Products Grid with elegant hover effect */}
-      {loading ? (
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
-            <p className="text-xl text-gray-600">Loading amazing products...</p>
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                className={`px-3 py-1 rounded-full border transition-all duration-200 ${
+                  selectedCategory === cat.id
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent shadow-lg shadow-blue-500/30'
+                    : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:shadow-md hover:shadow-blue-500/20'
+                }`}
+                onClick={() => setSelectedCategory(cat.id)}
+              >
+                <span className="font-elegant font-medium text-sm">{cat.name}</span>
+              </button>
+            ))}
           </div>
         </div>
-      ) : (
-        <div className="max-w-7xl mx-auto px-8 pb-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {filteredProducts.map((product, index) => (
-              <div
-                key={product.id}
-                className={`group cursor-pointer ${isInitialLoad ? 'animate-fade-in-up' : ''}`}
-                style={isInitialLoad ? { animationDelay: `${index * 0.1}s` } : {}}
-              >
+
+        {/* Products Grid with elegant hover effect */}
+        {loading ? (
+          <div className="max-w-7xl mx-auto px-8">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+              <p className="text-xl text-gray-600">Loading amazing products...</p>
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-7xl mx-auto px-8 pb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {filteredProducts.map((product, index) => (
                 <div
-                  onClick={() => navigate(`/products/${product.id}`)}
-                  className="bg-white rounded-xl p-4 shadow-md transition-all duration-300 border border-gray-100 group-hover:shadow-xl group-hover:shadow-blue-500/20 overflow-hidden relative h-[380px] flex flex-col cursor-pointer"
+                  key={product.id}
+                  className={`group cursor-pointer ${isInitialLoad ? 'animate-fade-in-up' : ''}`}
+                  style={isInitialLoad ? { animationDelay: `${index * 0.1}s` } : {}}
                 >
-                  {/* Product image with enhanced effects */}
-                  <div className="relative mb-4 overflow-hidden rounded-lg flex-shrink-0">
-                    <img
-                      src={product.images[0]}
-                      alt={product.title}
-                      className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    {/* Price badge */}
-                    <div className="absolute top-2 right-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full text-sm font-bold shadow-md">
-                      ${product.price}
+                  <div
+                    onClick={() => navigate(`/products/${product.id}`)}
+                    className="bg-white rounded-xl p-4 shadow-md transition-all duration-300 border border-gray-100 group-hover:shadow-xl group-hover:shadow-blue-500/20 overflow-hidden relative h-[380px] flex flex-col cursor-pointer"
+                  >
+                    {/* Product image with enhanced effects */}
+                    <div className="relative mb-4 overflow-hidden rounded-lg flex-shrink-0">
+                      <img
+                        src={product.images[0]}
+                        alt={product.title}
+                        className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      {/* Price badge */}
+                      <div className="absolute top-2 right-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-2 py-1 rounded-full text-sm font-bold shadow-md">
+                        ${product.price}
+                      </div>
+
+                      {/* Category badge */}
+                      <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm text-gray-700 px-2 py-1 rounded-full text-xs font-medium">
+                        {product.category.name}
+                      </div>
                     </div>
 
-                    {/* Category badge */}
-                    <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm text-gray-700 px-2 py-1 rounded-full text-xs font-medium">
-                      {product.category.name}
-                    </div>
-                  </div>
-
-                  {/* Product info */}
-                  <div className="relative z-10 flex-1 flex flex-col">
-                    <h3 className="font-elegant font-bold text-base mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
-                      {product.title}
-                    </h3>
-                    <div
-                      className="text-gray-600 text-sm mb-3 flex-1 overflow-y-auto"
-                      style={{ minHeight: '48px', maxHeight: '64px' }}
-                    >
-                      {product.description}
-                    </div>
-                    {/* Action button */}
-                    <div className="flex justify-center mt-auto">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          addToCart({
-                            id: product.id,
-                            title: product.title,
-                            price: product.price,
-                            image: product.images[0],
-                            category: product.category.name,
-                          });
-                        }}
-                        className={`w-2/3 ${buttonStyles.smallSuccess} cursor-pointer py-1 text-sm`}
+                    {/* Product info */}
+                    <div className="relative z-10 flex-1 flex flex-col">
+                      <h3 className="font-elegant font-bold text-base mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+                        {product.title}
+                      </h3>
+                      <div
+                        className="text-gray-600 text-sm mb-3 flex-1 overflow-y-auto"
+                        style={{ minHeight: '48px', maxHeight: '64px' }}
                       >
-                        {getItemQuantity(product.id) > 0 ? `In Cart (${getItemQuantity(product.id)})` : 'Add to Cart'}
-                      </button>
+                        {product.description}
+                      </div>
+                      {/* Action button */}
+                      <div className="flex justify-center mt-auto">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            addToCart({
+                              id: product.id,
+                              title: product.title,
+                              price: product.price,
+                              image: product.images[0],
+                              category: product.category.name,
+                            });
+                          }}
+                          className={`w-2/3 ${buttonStyles.smallSuccess} cursor-pointer py-1 text-sm`}
+                        >
+                          {getItemQuantity(product.id) > 0 ? `In Cart (${getItemQuantity(product.id)})` : 'Add to Cart'}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Empty state */}
-          {filteredProducts.length === 0 && (
-            <div className="text-center py-16">
-              <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-gray-700 mb-2">No products found</h3>
-              <p className="text-gray-500">Try adjusting your search or category filter</p>
+              ))}
             </div>
-          )}
-        </div>
-      )}
+
+            {/* Empty state */}
+            {filteredProducts.length === 0 && (
+              <div className="text-center py-16">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-2xl font-bold text-gray-700 mb-2">No products found</h3>
+                <p className="text-gray-500">Try adjusting your search or category filter</p>
+              </div>
+            )}
+          </div>
+        )}
+      </Container>
     </div>
   );
 };

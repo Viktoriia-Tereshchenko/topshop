@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import type { User } from "../../types";
-import UserCard from "../UserCard/UserCard";
+import { useEffect, useState } from 'react';
+import type { User } from '../../types';
+import UserCard from '../UserCard/UserCard';
 
 export default function UsersList() {
   const [users, setUsers] = useState<User[]>([]);
@@ -24,8 +24,8 @@ export default function UsersList() {
 
   useEffect(() => {
     updateCardsPerPage();
-    window.addEventListener("resize", updateCardsPerPage);
-    return () => window.removeEventListener("resize", updateCardsPerPage);
+    window.addEventListener('resize', updateCardsPerPage);
+    return () => window.removeEventListener('resize', updateCardsPerPage);
   }, []);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function UsersList() {
   async function fetchUsers() {
     setLoading(true);
     try {
-      const res = await fetch("https://api.escuelajs.co/api/v1/users");
+      const res = await fetch('https://api.escuelajs.co/api/v1/users');
 
       if (!res.ok) {
         throw new Error(`Server error: ${res.status}`);
@@ -53,7 +53,7 @@ export default function UsersList() {
         setError(e.message);
         setUsers([]);
       } else {
-        setError("Something went wrong...");
+        setError('Something went wrong...');
       }
     } finally {
       setLoading(false);
@@ -77,16 +77,10 @@ export default function UsersList() {
   return (
     <div className="flex flex-col justify-center items-center">
       {loading && <p>Loading users...</p>}
-      {error && (
-        <div className="text-secondary-700 font-semibold p-4">
-          Failed to load users: {error}
-        </div>
-      )}
+      {error && <div className="text-secondary-700 font-semibold p-4">Failed to load users: {error}</div>}
       {!loading && !error && (
         <>
-          <ul
-            className="  flex w-full max-w-screen-xl justify-center items-stretch px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 gap-10"
-          >
+          <ul className="  flex w-full max-w-screen-xl justify-center items-stretch px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 gap-10">
             {visibleUsers.map((user) => (
               <li
                 key={user.id}
@@ -94,14 +88,14 @@ export default function UsersList() {
                 flex-shrink-0 bg-white rounded-2xl overflow-hidden mx-auto 
                 max-w-[450px] rounded-b-[4px] 
                 shadow-[0px_1px_3px_rgba(0,0,0,0.12),0px_1px_1px_rgba(0,0,0,0.14),0px_2px_1px_rgba(0,0,0,0.2)]
-                transform transition-transform duration-300 hover:scale-110"
+                transform transition-transform duration-300 hover:scale-105"
                 style={{ width: `${100 / cardsPerPage}%` }}
               >
                 <UserCard user={user} />
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex gap-4">
+          <div className="mt-5 flex gap-4">
             <button
               onClick={handlePrev}
               disabled={page === 0}

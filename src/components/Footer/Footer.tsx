@@ -55,7 +55,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/support"
+                    href="/helpcenter"
                     className="hover:underline hover:text-white text-neutral-500"
                   >
                     Help Center
@@ -63,7 +63,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/contact"
+                    href="/contacts"
                     className="hover:underline hover:text-white text-neutral-500"
                   >
                     Contacts

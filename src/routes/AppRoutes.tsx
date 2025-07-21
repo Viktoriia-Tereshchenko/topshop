@@ -19,6 +19,10 @@ import HomePage from "../pages/HomePage/HomePage";
 import Team from "../pages/Team/Team";
 import ApplicationForm from "../pages/Careers/ApplicationForm";
 import CartPage from "../pages/CartPage/CartPage";
+import FAQPage from "../pages/FAQ/Faq";
+import HelpCenterPage from "../pages/HelpCenter/HelpCenterPage";
+import Contacts from "../pages/Contacts/Contacts";
+
 
 export default function AppRoutes() {
   return (
@@ -38,6 +42,9 @@ export default function AppRoutes() {
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
           <Route path="team" element={<Team />} />
           <Route path="careers" element={<ApplicationForm />} />
+          <Route path="faq" element={<FAQPage />} />
+          <Route path="helpcenter" element={<HelpCenterPage />} />
+          <Route path="contacts" element={<Contacts />} />
           <Route path={ROUTES.CART} element={<CartPage />} />
         </Route>
         {/* Admin Routes */}

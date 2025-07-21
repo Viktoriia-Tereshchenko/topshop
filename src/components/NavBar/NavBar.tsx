@@ -1,25 +1,18 @@
-import { NavLink } from "react-router-dom";
-import { ROUTES } from "../../constants/routes";
-import { useCurrentUser } from "../../hooks/useCurrentUser";
-import CartIcon from "../CartIcon/CartIcon";
-import { useCart } from "../../hooks/useCart";
-
+import { NavLink } from 'react-router-dom';
+import { ROUTES } from '../../constants/routes';
+import { useCurrentUser } from '../../hooks/useCurrentUser';
+import CartIcon from '../CartIcon/CartIcon';
 
 export const NavBar = () => {
   const { user, isAuthorized } = useCurrentUser();
-  const { cart } = useCart();
 
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
-  const isAdmin = user?.role === "admin";
+  const isAdmin = user?.role === 'admin';
   return (
     <nav className="flex items-center gap-4 flex-wrap text-sm">
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `${
-            isActive ? "text-indigo-400" : "text-gray-600"
-          } relative inline-block group focus:outline-none`
+          `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
         }
       >
         <span className="font-elegant font-medium px-2 py-2 uppercase tracking-wide hover:text-indigo-400 transition-colors duration-200">
@@ -30,9 +23,7 @@ export const NavBar = () => {
       <NavLink
         to={ROUTES.ABOUT}
         className={({ isActive }) =>
-          `${
-            isActive ? "text-indigo-400" : "text-gray-600"
-          } relative inline-block group focus:outline-none`
+          `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
         }
       >
         <span className="font-elegant font-medium px-2 py-2 uppercase tracking-wide hover:text-indigo-400 transition-colors duration-200">
@@ -43,9 +34,7 @@ export const NavBar = () => {
       <NavLink
         to={ROUTES.PRODUCTS}
         className={({ isActive }) =>
-          `${
-            isActive ? "text-indigo-400" : "text-gray-600"
-          } relative inline-block group focus:outline-none`
+          `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
         }
       >
         <span className="font-elegant font-medium px-2 py-2 uppercase tracking-wide hover:text-indigo-400 transition-colors duration-200">
@@ -56,9 +45,7 @@ export const NavBar = () => {
       <NavLink
         to={ROUTES.USERS}
         className={({ isActive }) =>
-          `${
-            isActive ? "text-indigo-400" : "text-gray-600"
-          } relative inline-block group focus:outline-none`
+          `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
         }
       >
         <span className="font-elegant font-medium px-2 py-2 uppercase tracking-wide hover:text-indigo-400 transition-colors duration-200">
@@ -71,9 +58,7 @@ export const NavBar = () => {
         <NavLink
           to={ROUTES.ADMIN}
           className={({ isActive }) =>
-            `${
-              isActive ? "text-indigo-400" : "text-gray-600"
-            } relative inline-block group focus:outline-none`
+            `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
           }
         >
           <span className="font-elegant font-medium px-2 py-2 uppercase tracking-wide hover:text-indigo-400 transition-colors duration-200">
@@ -85,13 +70,11 @@ export const NavBar = () => {
       <NavLink
         to={isAuthorized ? ROUTES.LOGOUT : ROUTES.LOGIN}
         className={({ isActive }) =>
-          `${
-            isActive ? "text-indigo-400" : "text-gray-600"
-          } relative inline-block group focus:outline-none`
+          `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
         }
       >
         <span className="font-elegant font-medium px-2 py-2 uppercase tracking-wide hover:text-indigo-400 transition-colors duration-200">
-          {isAuthorized ? "Sign Out" : "Sign In"}
+          {isAuthorized ? 'Sign Out' : 'Sign In'}
         </span>
         <span className="absolute left-0 bottom-0 h-[2px] w-full origin-right scale-x-0 transform bg-indigo-400 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:origin-left group-hover:scale-x-100" />
       </NavLink>
@@ -99,9 +82,7 @@ export const NavBar = () => {
         <NavLink
           to={ROUTES.ACCOUNT}
           className={({ isActive }) =>
-            `${
-              isActive ? "text-indigo-400" : "text-gray-600"
-            } relative inline-block group focus:outline-none`
+            `${isActive ? 'text-indigo-400' : 'text-gray-600'} relative inline-block group focus:outline-none`
           }
         >
           <div className="font-medium px-1 py-2 uppercase hover:text-[#2196f3] flex gap-3 items-center-safe">

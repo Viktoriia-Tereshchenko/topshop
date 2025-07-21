@@ -6,7 +6,6 @@ import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
 import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
 import CheckoutSuccessPage from "../pages/CheckoutSuccessPage/CheckoutSuccessPage";
-import CartPage from "../pages/CartPage/CartPage";
 import { AddProduct } from "../components/AddProduct/AddProduct";
 import { AdminLayout } from "../pages/Admin/AdminLayout";
 import { AdminDashboard } from "../pages/Admin/AdminDashboard";

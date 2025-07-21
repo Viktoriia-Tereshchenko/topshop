@@ -172,7 +172,7 @@ export const CartPage = () => {
                   <button
                     onClick={handleClick}
                     disabled={isLoading}
-                    className="w-full bg-accent text-white py-1.5 px-6 rounded-lg font-elegant font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-accent text-white py-1.5 px-6 rounded font-elegant font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {isLoading ? (
                       <>

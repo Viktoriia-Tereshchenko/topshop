@@ -351,7 +351,8 @@ const CheckoutPage: React.FC = () => {
                     <button
                       onClick={handleNextStep}
                       disabled={currentStep === 1 && !Object.values(shippingForm).every((v) => v.trim())}
-                      className={`${buttonStyles.primary} px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed font-elegant font-medium`}
+                      // className={`${buttonStyles.primary} px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed font-elegant font-medium`}
+                      className="bg-accent  hover:bg-blue-700 rounded text-white px-8 py-2 disabled:opacity-50 disabled:cursor-not-allowed font-elegant font-medium"
                     >
                       Next
                     </button>
@@ -359,7 +360,7 @@ const CheckoutPage: React.FC = () => {
                     <button
                       onClick={handlePlaceOrder}
                       disabled={!isFormValid()}
-                      className={`${buttonStyles.primary} px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed font-elegant font-medium`}
+                      className="bg-accent  hover:bg-blue-700 rounded  text-white px-8 py-2 disabled:opacity-50 disabled:cursor-not-allowed font-elegant font-medium"
                     >
                       Place Order
                     </button>

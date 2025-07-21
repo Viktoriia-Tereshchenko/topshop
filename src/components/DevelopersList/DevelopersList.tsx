@@ -5,7 +5,7 @@ import { developersArr } from './developers-data';
 export default function DevelopersList() {
   return (
     <div className="pb-30 bg-[#f5f4fa]">
-      <h2 className="my-20 text-center text-3xl">Project team:</h2>
+      <h2 className="my-20 text-center text-accent text-5xl font-team-title">Project team:</h2>
       <ul className="w-full flex flex-wrap gap-20 justify-center">
         {developersArr.map((d) => (
           <li
@@ -29,7 +29,7 @@ export default function DevelopersList() {
               <p className="font-bold text-sm text-gray-500 mb-5">{d.role}</p>
               <div className="flex justify-center gap-4 text-gray-400">
                 <div
-                  className="cursor-pointer hover:text-pink-500 transition-colors duration-200"
+                  className="cursor-pointer hover:text-accent transition-colors duration-200"
                   title="Instagram"
                   role="img"
                   aria-label="Instagram icon"
@@ -37,7 +37,7 @@ export default function DevelopersList() {
                   {ICONS.INSTAGRAM}
                 </div>
                 <div
-                  className="cursor-pointer hover:text-sky-500 transition-colors duration-200"
+                  className="cursor-pointer hover:text-accent transition-colors duration-200"
                   title="Twitter"
                   role="img"
                   aria-label="Twitter icon"
@@ -45,7 +45,7 @@ export default function DevelopersList() {
                   {ICONS.TWITTER}
                 </div>
                 <div
-                  className="cursor-pointer hover:text-blue-600 transition-colors duration-200"
+                  className="cursor-pointer hover:text-accent transition-colors duration-200"
                   title="Facebook"
                   role="img"
                   aria-label="Facebook icon"
@@ -53,7 +53,7 @@ export default function DevelopersList() {
                   {ICONS.FACEBOOK}
                 </div>
                 <div
-                  className="cursor-pointer hover:text-blue-700 transition-colors duration-200"
+                  className="cursor-pointer hover:text-accent transition-colors duration-200"
                   title="LinkedIn"
                   role="img"
                   aria-label="LinkedIn icon"

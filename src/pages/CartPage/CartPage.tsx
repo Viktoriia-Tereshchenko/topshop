@@ -1,9 +1,12 @@
-import Cart from "../../components/Cart/Cart";
+import Cart from '../../components/Cart/Cart';
+import Container from '../../components/Container/Container';
 
 export default function CartPage() {
   return (
     <div className="py-[80px]">
-      <Cart />
+      <Container>
+        <Cart />
+      </Container>
     </div>
   );
 }

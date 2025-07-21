@@ -1,3 +1,7 @@
+import facebook from "/src/assets/facebook.png";
+import instagram from "/src/assets/instagram.png";
+import twitter from "/src/assets/twitter.png";
+import linkedin from "/src/assets/linkedin.png";
 export default function Contacts() {
   return (
     <div>
@@ -14,16 +18,16 @@ export default function Contacts() {
             {/* Иконки в один ряд */}
             <div className="flex justify-between items-center w-full max-w-[600px]">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <img src="/src/assets/instagram.png" alt="Instagram" className="w-25 h-25" />
+                <img src={instagram} alt="Instagram" className="w-25 h-25" />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <img src="/src/assets/facebook.png" alt="Facebook" className="w-25 h-25" />
+                <img src={facebook} alt="Facebook" className="w-25 h-25" />
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <img src="/src/assets/twitter.png" alt="Twitter" className="w-25 h-25" />
+                <img src={twitter} alt="Twitter" className="w-25 h-25" />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-80">
-                <img src="/src/assets/linkedin.png" alt="LinkedIn" className="w-25 h-25" />
+                <img src={linkedin} alt="LinkedIn" className="w-25 h-25" />
               </a>
             </div>
 

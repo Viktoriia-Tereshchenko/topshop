@@ -17,6 +17,12 @@ export const ROUTES = {
   ADMIN_CATEGORIES: "/admin/categories",
   ADMIN_USERS: "/admin/users",
   CART: "/cart",
+  TEAM: "/team",
+  CAREERS: "/careers",
+  FAQ: "/faq",
+  HELPCENTER: "/helpcenter",
+  CONTACTS: "/contacts"
+
 } as const;
 
 export const PRODUCTS = "/products";

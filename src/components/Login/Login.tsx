@@ -27,29 +27,44 @@ export const Login = () => {
   const navigate = useNavigate();
 
   async function fetchLogin(credentials: Credentials) {
-    const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'Application/JSON' },
-      body: JSON.stringify(credentials),
-    });
+    try {
+      console.log('Attempting login with:', credentials);
+      
+      const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(credentials),
+      });
 
-    if (res.ok) {
-      setMessage('Successfully login');
+      console.log('Login response status:', res.status);
+      console.log('Login response ok:', res.ok);
 
-      const { access_token } = await res.json();
-      localStorage.setItem('accessToken', access_token);
-      localStorage.setItem('isAuthorized', 'true');
-      setIsAuthorized(true);
-      setTimeout(() => {
+      if (res.ok) {
+        const data = await res.json();
+        console.log('Login response data:', data);
+        
+        setMessage('Successfully login');
+
+        const { access_token } = data;
+        localStorage.setItem('accessToken', access_token);
+        localStorage.setItem('isAuthorized', 'true');
+        setIsAuthorized(true);
         navigate(ROUTES.HOME);
-      }, 2000); // редирект
+      } else {
+        const errorData = await res.json();
+        console.error('Login error:', errorData);
+        setMessage('Login failed: ' + (errorData.message || 'Unknown error'));
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setMessage('Login failed: Network error');
     }
   }
   useEffect(() => {
     if (isAuthorized) {
-      navigate(ROUTES.ACCOUNT);
+      navigate(ROUTES.HOME);
     }
-  }, []);
+  }, [isAuthorized, navigate]);
 
   return (
     <div className="py-[120px]">

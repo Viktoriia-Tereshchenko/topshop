@@ -50,12 +50,12 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/support" className="hover:underline hover:text-white text-neutral-500">
+                  <a href="/helpcenter" className="hover:underline hover:text-white text-neutral-500">
                     Help Center
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="hover:underline hover:text-white text-neutral-500">
+                  <a href="/contacts" className="hover:underline hover:text-white text-neutral-500">
                     Contacts
                   </a>
                 </li>

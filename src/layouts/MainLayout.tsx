@@ -6,10 +6,13 @@ import Container from '../components/Container/Container';
 export const MainLayout = () => {
   return (
     <>
-      <header className="fixed top-0 w-full border-b-1 border-b-[#ececec] h-20 z-10 bg-secondary-100/95">
+      <header
+        className="fixed flex items-center
+       top-0 w-full border-b-1 border-b-[#ececec]  h-[120px] [@media(min-width:1200px)]:h-[80px] z-1000 bg-secondary-100/95"
+      >
         <Container>
           <div className="flex justify-between items-center  size-full">
-            <Link to="/" className="font-secondary font-bold text-[26px]">
+            <Link to="/" className="font-secondary font-bold text-[26px] mr-10">
               <span className="text-accent">Top</span>Shop
             </Link>
             <NavBar />
@@ -18,7 +21,7 @@ export const MainLayout = () => {
       </header>
 
       {/* сюда будут подставляться наши Route */}
-      <main className="flex-1 pt-20">
+      <main className="flex-1  pt-[120px] [@media(min-width:1200px)]:pt-[80px]">
         <Outlet />
       </main>
       <Footer />

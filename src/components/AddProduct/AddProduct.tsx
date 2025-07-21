@@ -15,8 +15,8 @@ export const AddProduct = () => {
 
   useEffect(() => {
     fetch(CATEGORIES_API)
-      .then(res => res.json())
-      .then(data => setCategories(data));
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -60,33 +60,67 @@ export const AddProduct = () => {
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-300 mb-1">Title</label>
-          <input type="text" value={title} onChange={e => setTitle(e.target.value)} required className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+            className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
         <div>
           <label className="block text-gray-300 mb-1">Price</label>
-          <input type="number" value={price} onChange={e => setPrice(e.target.value)} required className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+            className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
         <div>
           <label className="block text-gray-300 mb-1">Description</label>
-          <textarea value={description} onChange={e => setDescription(e.target.value)} required className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
         <div>
           <label className="block text-gray-300 mb-1">Category</label>
-          <select value={categoryId} onChange={e => setCategoryId(e.target.value)} required className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <select
+            value={categoryId}
+            onChange={(e) => setCategoryId(e.target.value)}
+            required
+            className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
             <option value="">Select category</option>
             {categories.map((cat: any) => (
-              <option key={cat.id} value={cat.id}>{cat.name}</option>
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
             ))}
           </select>
         </div>
         <div>
           <label className="block text-gray-300 mb-1">Image URL</label>
-          <input type="text" value={image} onChange={e => setImage(e.target.value)} required className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+          <input
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            required
+            className="w-full rounded px-3 py-2 bg-gray-900 text-gray-100 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
         </div>
-        <button type="submit" disabled={loading} className="w-full py-2 rounded bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-colors disabled:opacity-50">
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full py-2 rounded bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-colors disabled:opacity-50"
+        >
           {loading ? 'Adding...' : 'Add Product'}
         </button>
       </form>
     </div>
   );
-}; 
+};

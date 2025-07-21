@@ -198,10 +198,10 @@ export const ProductsManagement = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-100">Products Management</h1>
+        <h1 className="text-3xl font-elegant font-bold text-gray-100">Products Management</h1>
         <button
           onClick={() => setShowAddForm(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors font-elegant font-medium"
         >
           Add New Product
         </button>
@@ -239,7 +239,7 @@ export const ProductsManagement = () => {
       {/* Add/Edit Form */}
       {(showAddForm || editingProduct) && (
         <div className="bg-gray-800 rounded-xl p-6 mb-6 border border-gray-700">
-          <h2 className="text-xl font-bold text-gray-100 mb-4">
+          <h2 className="text-xl font-elegant font-bold text-gray-100 mb-4">
             {editingProduct ? 'Edit Product' : 'Add New Product'}
           </h2>
           <form onSubmit={editingProduct ? handleEditProduct : handleAddProduct}>
@@ -365,7 +365,7 @@ export const ProductsManagement = () => {
             <div className="flex gap-2">
               <button
                 type="submit"
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors font-elegant font-medium"
               >
                 {editingProduct ? 'Update Product' : 'Add Product'}
               </button>
@@ -375,7 +375,7 @@ export const ProductsManagement = () => {
                   setShowAddForm(false);
                   cancelEdit();
                 }}
-                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors"
+                className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors font-elegant font-medium"
               >
                 Cancel
               </button>
@@ -431,13 +431,13 @@ export const ProductsManagement = () => {
                     <div className="flex gap-2">
                       <button
                         onClick={() => startEdit(product)}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded text-sm transition-colors"
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1 rounded text-sm transition-colors font-elegant font-medium"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDeleteProduct(product.id)}
-                        className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded text-sm transition-colors"
+                        className="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded text-sm transition-colors font-elegant font-medium"
                       >
                         Delete
                       </button>

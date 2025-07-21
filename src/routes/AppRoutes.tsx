@@ -40,11 +40,11 @@ export default function AppRoutes() {
           {/* <Route path="*" element={<NotFound />} /> */}
           <Route path={ROUTES.PRODUCTS} element={<ProductsPage />} />
           <Route path={ROUTES.ADD_PRODUCT} element={<AddProduct />} />
-          <Route path="team" element={<Team />} />
-          <Route path="careers" element={<ApplicationForm />} />
-          <Route path="faq" element={<FAQPage />} />
-          <Route path="helpcenter" element={<HelpCenterPage />} />
-          <Route path="contacts" element={<Contacts />} />
+          <Route path={ROUTES.TEAM} element={<Team />} />
+          <Route path={ROUTES.CAREERS} element={<ApplicationForm />} />
+          <Route path={ROUTES.FAQ} element={<FAQPage />} />
+          <Route path={ROUTES.HELPCENTER} element={<HelpCenterPage />} />
+          <Route path={ROUTES.CONTACTS} element={<Contacts />} />
           <Route path={ROUTES.CART} element={<CartPage />} />
         </Route>
         {/* Admin Routes */}

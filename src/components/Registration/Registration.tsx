@@ -56,7 +56,7 @@ export const Registration = () => {
   return (
     <div className="py-[120px]">
       <Container>
-        <div>{message ? message : null}</div>
+        <div className="text-accent">{message ? message : null}</div>
         <h1 className="text-3xl font-bold mb-6 text-center">Registration</h1>
         <Formik
           initialValues={{

@@ -258,7 +258,7 @@ const ProductDetailPage: React.FC = () => {
               </div>
               <div className="text-yellow-700 font-semibold">Only 1 left</div>
               <button
-                className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-elegant font-medium py-1 rounded shadow hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full  bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-6 rounded shadow hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                 onClick={handleAddToCart}
               >
                 <svg
@@ -280,7 +280,7 @@ const ProductDetailPage: React.FC = () => {
               {isAuthorized && (
                 <>
                   <button
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-elegant font-medium py-1 rounded shadow hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full  bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded shadow hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                     onClick={handleBuyNow}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -289,7 +289,7 @@ const ProductDetailPage: React.FC = () => {
                     Buy Now
                   </button>
                   <button
-                    className="w-full bg-blue-500 hover:bg-blue-600 text-white font-elegant font-medium py-1 rounded shadow hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+                    className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded shadow hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
                     onClick={() => navigate('/products')}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
